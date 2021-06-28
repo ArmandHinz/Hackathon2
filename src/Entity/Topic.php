@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TopicRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,9 +30,14 @@ class Topic
     private $color;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Sujet::class, inversedBy="topics")
+     * @ORM\OneToMany(targetEntity=Sujet::class, mappedBy="topic")
      */
-    private $sujet;
+    private $sujets;
+
+    public function __construct()
+    {
+        $this->sujets = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -61,14 +68,32 @@ class Topic
         return $this;
     }
 
-    public function getSujet(): ?Sujet
+    /**
+     * @return Collection|Sujet[]
+     */
+    public function getSujets(): Collection
     {
-        return $this->sujet;
+        return $this->sujets;
     }
 
-    public function setSujet(?Sujet $sujet): self
+    public function addSujet(Sujet $sujet): self
     {
-        $this->sujet = $sujet;
+        if (!$this->sujets->contains($sujet)) {
+            $this->sujets[] = $sujet;
+            $sujet->setTopic($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSujet(Sujet $sujet): self
+    {
+        if ($this->sujets->removeElement($sujet)) {
+            // set the owning side to null (unless already changed)
+            if ($sujet->getTopic() === $this) {
+                $sujet->setTopic(null);
+            }
+        }
 
         return $this;
     }

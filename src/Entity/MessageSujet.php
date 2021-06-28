@@ -28,7 +28,7 @@ class MessageSujet
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Sujet::class, inversedBy="messageSujets")
+     * @ORM\ManyToOne(targetEntity=Sujet::class, inversedBy="messageSujets", cascade={"remove"})
      */
     private $sujet;
 
