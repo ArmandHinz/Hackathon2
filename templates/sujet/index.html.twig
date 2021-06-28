@@ -16,8 +16,10 @@
             <p>{{ sujet.topic.name }}</p>
 
             <a href="{{ path("sujet_show", {id: sujet.id}) }}">voir le sujet</a>
-            <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}">editer</a>
+            {% if app.user.id == sujet.user.id %}
+                <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}">editer</a>
             {{ include('sujet/_delete_form.html.twig') }}
+            {% endif %}
             <br>
             <hr>
     {% else %}
