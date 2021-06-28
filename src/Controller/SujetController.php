@@ -9,13 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\SujetFormType;
-use Symfony\Component\Mime\Email;
-use Symfony\Component\Mailer\MailerInterface;
 use App\Repository\SujetRepository;
 use App\Form\SearchSubjectType;
 use App\Form\MessageSujetType;
 use App\Form\SearchSujetType;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/sujet", name="sujet_")
@@ -25,29 +23,21 @@ class SujetController extends AbstractController
 
     /**
      * Creat a new form in order to add a new subject
-     *
+     * @IsGranted("ROLE_FREELANCE")
      * @Route("/new", name="new")
      */
-    public function new(Request $request, MailerInterface $mailer): Response
+    public function new(Request $request): Response
     {
-
         $sujet = new Sujet();
         $form = $this->createForm(SujetFormType::class, $sujet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //$sujet->setAuthor($this->getUser()); à mettre quand on aura les sessions
+            $sujet->setUser($this->getUser());
             $sujet->setDate(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($sujet);
             $entityManager->flush();
-            /**$email = (new Email())
-                ->from('11ff993407-658458@inbox.mailtrap.io')
-                ->to('11ff993407-658458@inbox.mailtrap.io')
-                ->subject('Une nouvelle série vient d\'être publiée !')
-                ->html($this->renderView('sujet/newsujetEmail.html.twig', ['sujet' => $sujet]));
-
-            $mailer->send($email);*/
             return $this->redirectToRoute('sujet_index');
         }
 
@@ -57,6 +47,7 @@ class SujetController extends AbstractController
     /**
      * Creat a new form in order to edit a subject
      * @Route("/{sujetId}/edit", name="edit")
+     * @IsGranted("ROLE_FREELANCE")
      */
     public function edit(Request $request, Sujet $sujetId): Response
     {
@@ -75,6 +66,7 @@ class SujetController extends AbstractController
     /**
      * show all subjetc in the sujet section
      * @Route("/", name="index")
+     * @IsGranted("ROLE_FREELANCE")
      */
     public function index(Request $request, SujetRepository $sujetRepository): Response
     {
@@ -103,6 +95,7 @@ class SujetController extends AbstractController
     /**
      * Show all comment of a subjet
      * @Route("/{id}", name="show")
+     * @IsGranted("ROLE_FREELANCE")
      * @return Response A response instance
      */
     public function show(Sujet $sujet, Request $request): Response
@@ -112,7 +105,7 @@ class SujetController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //$message->setUser($this->getUser()); à mettre quand on aura les sessions
+            $message->setUser($this->getUser());
             $message->setSujet($sujet);
             $message->setDate(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
@@ -132,7 +125,7 @@ class SujetController extends AbstractController
 
     /**
      * Delete a subject
-     *
+     * @IsGranted("ROLE_FREELANCE")
      * @Route("/delete/{id}", name="delete")
      */
     public function delete(Sujet $sujet): response

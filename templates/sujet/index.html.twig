@@ -12,6 +12,7 @@
        
             <h2>{{ loop.index }} / {{ sujet.name }}</h2>
             <p>{{ sujet.shortDescription }}</p>
+            <p>{{ sujet.user.firstName }}</p>
             <p>{{ sujet.topic.name }}</p>
 
             <a href="{{ path("sujet_show", {id: sujet.id}) }}">voir le sujet</a>
