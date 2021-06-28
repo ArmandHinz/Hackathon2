@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ sujet.name }}{% endblock %}
+
+{% block body %}
+    <h1>Tous les messages du sujet : </h1>
+    {% for message in sujet.messageSujets %}
+    <li>  autheur {#{ message.author.firstName }#} </li>
+        message {{ message.message }} <a href="{{ path('comment_sujet_edit', {id: message.id}) }}">modifier</a>
+        {{ include('comment_sujet/_delete_form.html.twig') }}
+        <br>
+        <hr>
+
+    {% else %}
+        Aucun sujet trouvé.
+    {% endfor %}
+    {{ include('comment_sujet/new.html.twig') }}
+    <a href="{{ path('sujet_index') }}">
+        Retour aux sujets
+    </a>
+    
+{% endblock %}

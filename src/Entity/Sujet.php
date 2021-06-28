@@ -40,19 +40,19 @@ class Sujet
     private $date;
 
     /**
-     * @ORM\OneToMany(targetEntity=MessageSujet::class, mappedBy="sujet")
+     * @ORM\OneToMany(targetEntity=MessageSujet::class, mappedBy="sujet", cascade={"remove"})
      */
     private $messageSujets;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Topic::class, mappedBy="sujet")
-     */
-    private $topics;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="sujets")
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Topic::class, inversedBy="sujets")
+     */
+    private $topic;
 
     public function __construct()
     {
@@ -143,36 +143,6 @@ class Sujet
         return $this;
     }
 
-    /**
-     * @return Collection|Topic[]
-     */
-    public function getTopics(): Collection
-    {
-        return $this->topics;
-    }
-
-    public function addTopic(Topic $topic): self
-    {
-        if (!$this->topics->contains($topic)) {
-            $this->topics[] = $topic;
-            $topic->setSujet($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTopic(Topic $topic): self
-    {
-        if ($this->topics->removeElement($topic)) {
-            // set the owning side to null (unless already changed)
-            if ($topic->getSujet() === $this) {
-                $topic->setSujet(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -181,6 +151,18 @@ class Sujet
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getTopic(): ?Topic
+    {
+        return $this->topic;
+    }
+
+    public function setTopic(?Topic $topic): self
+    {
+        $this->topic = $topic;
 
         return $this;
     }
