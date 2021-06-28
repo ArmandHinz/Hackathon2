@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Tous les messages du sujet : </h1>
     {% for message in sujet.messageSujets %}
-    <li>  autheur {#{ message.author.firstName }#} </li>
+    <li>  autheur {{ message.user.firstName }} </li>
         message {{ message.message }} <a href="{{ path('comment_sujet_edit', {id: message.id}) }}">modifier</a>
         {{ include('comment_sujet/_delete_form.html.twig') }}
         <br>
