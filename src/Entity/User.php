@@ -77,12 +77,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $messageSujets;
 
+    /**
+     * @ORM\OneToMany(targetEntity=MessageProjet::class, mappedBy="user")
+     */
+    private $messageProjets;
+
     public function __construct()
     {
         $this->projets = new ArrayCollection();
         $this->technos = new ArrayCollection();
         $this->sujets = new ArrayCollection();
         $this->messageSujets = new ArrayCollection();
+        $this->messageProjets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -346,6 +352,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($messageSujet->getUser() === $this) {
                 $messageSujet->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MessageProjet[]
+     */
+    public function getMessageProjets(): Collection
+    {
+        return $this->messageProjets;
+    }
+
+    public function addMessageProjet(MessageProjet $messageProjet): self
+    {
+        if (!$this->messageProjets->contains($messageProjet)) {
+            $this->messageProjets[] = $messageProjet;
+            $messageProjet->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessageProjet(MessageProjet $messageProjet): self
+    {
+        if ($this->messageProjets->removeElement($messageProjet)) {
+            // set the owning side to null (unless already changed)
+            if ($messageProjet->getUser() === $this) {
+                $messageProjet->setUser(null);
             }
         }
 
