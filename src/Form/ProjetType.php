@@ -17,9 +17,16 @@ class ProjetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('urlDrive',UrlType::class)
+            ->add('name', TextType::class,  [
+                'attr' => [
+                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
+                ]
+            ])
+            ->add('description', TextareaType::class,  [
+                'attr' => [
+                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
+                ]
+            ])
         ;
     }
 

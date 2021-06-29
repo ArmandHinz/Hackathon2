@@ -41,17 +41,25 @@ class RegistrationFormType extends AbstractType
                     'required' => true,
                 )
             )
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('email',EmailType::class)
-            ->add('technos', EntityType::class,[
-                'mapped' => false,
-                'class' => Techno::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,
-                'mapped'=>false
+            ->add('firstname', TextType::class, [
+                'attr' => [
+                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
+                ]
+            ])
+            ->add('lastname', TextType::class, [
+                'attr' => [
+                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
+                ]
+            ])
+            ->add('description', TextareaType::class, [
+                'attr' => [
+                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
+                ]
+            ])
+            ->add('email',EmailType::class, [
+                'attr' => [
+                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
+                ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -65,7 +73,8 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => ['autocomplete' => 'new-password',
+                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
