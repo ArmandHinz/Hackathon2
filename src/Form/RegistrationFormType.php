@@ -23,30 +23,35 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('roles', ChoiceType::class, array(
-            'choices' =>
-            array
-            (
-                'ROLE_BUSINESS' => array
-                (
-                    'Business' => 'ROLE_BUSINESS',
-                ),
-                'ROLE_FREELANCE' => array
-                (
-                    'Freelance' => 'ROLE_FREELANCE'
+            ->add(
+                'roles',
+                ChoiceType::class,
+                array(
+                    'choices' =>
+                    array(
+                        'ROLE_BUSINESS' => array(
+                            'Business' => 'ROLE_BUSINESS',
+                        ),
+                        'ROLE_FREELANCE' => array(
+                            'Freelance' => 'ROLE_FREELANCE'
+                        )
+                    ),
+                    'expanded' => true,
+                    'multiple' => true,
+                    'required' => true,
                 )
             )
-            ,
-            'expanded' => true,
-            'multiple' => true,
-            'required' => true,
-            )
-        )
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('description', TextareaType::class)
-            ->add('email',EmailType::class)
 
+            ->add('email', EmailType::class)
+            ->add('technos', EntityType::class, [
+                'class' => Techno::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -71,8 +76,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

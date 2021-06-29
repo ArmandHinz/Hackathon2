@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessageChanelController!{% endblock %}
+
+{% block body %}
+{% for message in messages %}
+<h3>{{ message.user.lastname }}</h3>
+<p>{{ message.content }}</p>
+{% endfor %}
+{{ include('message_chanel/_form.html.twig') }}
+{% endblock %}

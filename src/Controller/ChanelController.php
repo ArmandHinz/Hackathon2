@@ -31,7 +31,7 @@ class ChanelController extends AbstractController
             $entityManager->persist($chanel);
             $entityManager->flush();
 
-            return $this->redirectToRoute('projet_show', ["id" => $projet->getId()]);
+            return $this->redirectToRoute('projet_index');
         }
 
         return $this->render('chanel/new.html.twig', [
@@ -74,7 +74,7 @@ class ChanelController extends AbstractController
      */
     public function delete(Request $request, Chanel $chanel): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$chanel->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $chanel->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($chanel);
             $entityManager->flush();
@@ -91,7 +91,7 @@ class ChanelController extends AbstractController
         $chanel->setIsValidate(1);
         $chanel->setUser($this->getUser());
         $entityManager->flush();
-        
-        return $this->redirectToRoute('chanel_show', ['id' => $chanel->getId()]);
+
+        return $this->redirectToRoute('projet_index');
     }
 }
