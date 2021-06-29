@@ -16,7 +16,7 @@ class AvatareType extends AbstractType
         $builder
             ->add('url', TextType::class, [
                 'attr' => [
-                    'class' => '.uk-input'
+                    'class' => 'uk-input'
                 ]
             ])
             ->add('name', TextType::class, [
