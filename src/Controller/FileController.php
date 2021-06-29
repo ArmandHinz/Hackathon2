@@ -7,6 +7,7 @@ use App\Entity\File;
 use App\Entity\Projet;
 use App\Form\UploadFileType;
 use App\Services\Slugify;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @package App\Controller
  * @Route("/file", name="file_")
  */
-class FileController extends \Symfony\Bundle\FrameworkBundle\Controller\AbstractController
+class FileController extends AbstractController
 {
 
     /**
@@ -88,14 +89,18 @@ class FileController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
     }
 
     /**
-     * @Route("/{id}", name="delete")
+     * @Route("/{id}/{projet}", name="delete", defaults={"projet": null})
      */
-    public function delete(Request $request, File $file): Response
+    public function delete(Request $request, File $file, int $projet): Response
     {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($file);
-            $entityManager->flush();
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($file);
+        $entityManager->flush();
 
+        if($projet != null){
+            return $this->redirectToRoute('projet_show', ['id' => $projet]);
+
+        }
         return $this->redirectToRoute('file_index');
     }
 
