@@ -2,7 +2,17 @@
 @import url('./class.scss');
 
 .img_test{
-    width: 20%;
-    height: 20%;
-    background: linear-gradient(235deg,#89ff00,#010615,#00bcd4);
+    width: 15%;
+    height: 15%;
+    border-radius: 50%;
+}
+
+.uk-background-default{
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 2%;
+    background-color: whitesmoke;
+    border-radius: 15%;
+    color: black;
+    font-size: large;
 }
