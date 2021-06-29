@@ -32,6 +32,11 @@ class MessageChanel
      */
     private $chanel;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="messageChanels")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class MessageChanel
     public function setChanel(?Chanel $chanel): self
     {
         $this->chanel = $chanel;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
