@@ -80,14 +80,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $messageProjets;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Techno::class, inversedBy="users")
+     */
+    private $techno;
+  
+     /**
      * @ORM\OneToMany(targetEntity=Chanel::class, mappedBy="user")
      */
     private $chanels;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Techno::class, inversedBy="user")
-     */
-    private $technos;
+    
+
 
     public function __construct()
     {
@@ -379,7 +382,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $messageProjet->setUser(null);
             }
         }
-
         return $this;
     }
 
@@ -422,5 +424,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return (string) $this->getId();
 
+    }
+
+    public function getTechno(): ?Techno
+    {
+        return $this->techno;
+    }
+
+    public function setTechno(?Techno $techno): self
+    {
+        $this->techno = $techno;
+
+        return $this;
     }
 }
