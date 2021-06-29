@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
@@ -114,6 +113,9 @@ function init() {
         // vertical angle control
         controls.minPolarAngle = -Math.PI / 4;
         controls.maxPolarAngle = Math.PI / 2.5;
+        // horizontal angle control
+        controls.minAzimuthAngle = -Math.PI/2 ; 
+        controls.maxAzimuthAngle = Math.PI/2 ;
         // min / max Zoom
         controls.minDistance = 5;
         controls.maxDistance = 12;
@@ -135,5 +137,7 @@ const animate = function () {
     labelRenderer.render( scene, camera );
 };
 
-init();
-animate();
+if (document.querySelector('.home')){
+    init();
+    animate(); 
+}

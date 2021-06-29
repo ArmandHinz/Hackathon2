@@ -47,6 +47,7 @@ class RegistrationFormType extends AbstractType
             ->add('description', TextareaType::class)
             ->add('email',EmailType::class)
             ->add('technos', EntityType::class,[
+                'mapped' => false,
                 'class' => Techno::class,
                 'choice_label' => 'name',
                 'multiple' => true,
