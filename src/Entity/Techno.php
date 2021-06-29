@@ -36,11 +36,6 @@ class Techno
 
     public function __construct()
     {
-        $this->users = new ArrayCollection();
-    }
-
-    public function __construct()
-    {
         $this->chanels = new ArrayCollection();
         $this->user = new ArrayCollection();
     }
@@ -62,7 +57,7 @@ class Techno
         return $this;
     }
 
-     /**
+    /**
      * @return Collection|Chanel[]
      */
     public function getChanels(): Collection
