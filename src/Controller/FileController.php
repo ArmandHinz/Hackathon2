@@ -27,7 +27,7 @@ class FileController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
      * @return Response
      * @Route("/", name="index")
      */
-    public function index(Request $request, Slugify $slugify, Projet $projet): Response
+    public function index(Request $request, Slugify $slugify): Response
     {
         $files = $this->getDoctrine()->getRepository(File::class)->findAll();
 
@@ -64,7 +64,7 @@ class FileController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
                 $file->setSrc($newFilename);
                 $file->setName($safeFilename);
                 $file->setType($extension);
-                $file->setProject($projet);
+                $file->setProject(null);
             }
 
             // ... persist the $file variable or any other work

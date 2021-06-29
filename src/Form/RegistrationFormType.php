@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Techno;
 use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -22,7 +24,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
         ->add('roles', ChoiceType::class, array(
-            'choices' => 
+            'choices' =>
             array
             (
                 'ROLE_BUSINESS' => array
@@ -33,7 +35,7 @@ class RegistrationFormType extends AbstractType
                 (
                     'Freelance' => 'ROLE_FREELANCE'
                 )
-            ) 
+            )
             ,
             'expanded' => true,
             'multiple' => true,
@@ -44,6 +46,12 @@ class RegistrationFormType extends AbstractType
             ->add('lastname', TextType::class)
             ->add('description', TextareaType::class)
             ->add('email',EmailType::class)
+            ->add('technos', EntityType::class,[
+                'class' => Techno::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
+            ] )
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
