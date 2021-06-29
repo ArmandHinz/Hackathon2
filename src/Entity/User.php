@@ -83,13 +83,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\ManyToOne(targetEntity=Techno::class, inversedBy="users")
      */
     private $techno;
-  
+
      /**
      * @ORM\OneToMany(targetEntity=Chanel::class, mappedBy="user")
      */
     private $chanels;
 
-    
+    /**
+     * @ORM\OneToMany(targetEntity=MessageChanel::class, mappedBy="user")
+     */
+    private $messageChanels;
+
+
+
 
 
     public function __construct()
@@ -99,24 +105,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->messageSujets = new ArrayCollection();
         $this->messageProjets = new ArrayCollection();
         $this->chanels = new ArrayCollection();
+        $this->messageChanels = new ArrayCollection();
     }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTechnos(): ArrayCollection
-    {
-        return $this->technos;
-    }
-
-    /**
-     * @param ArrayCollection $technos
-     */
-    public function setTechnos(ArrayCollection $technos): void
-    {
-        $this->technos = $technos;
-    }
-
 
 
     public function getId(): ?int
@@ -434,6 +424,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTechno(?Techno $techno): self
     {
         $this->techno = $techno;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MessageChanel[]
+     */
+    public function getMessageChanels(): Collection
+    {
+        return $this->messageChanels;
+    }
+
+    public function addMessageChanel(MessageChanel $messageChanel): self
+    {
+        if (!$this->messageChanels->contains($messageChanel)) {
+            $this->messageChanels[] = $messageChanel;
+            $messageChanel->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessageChanel(MessageChanel $messageChanel): self
+    {
+        if ($this->messageChanels->removeElement($messageChanel)) {
+            // set the owning side to null (unless already changed)
+            if ($messageChanel->getUser() === $this) {
+                $messageChanel->setUser(null);
+            }
+        }
 
         return $this;
     }

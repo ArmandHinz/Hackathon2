@@ -2,9 +2,6 @@
 
 {% block title %} files {% endblock %}
 
-{% block stylesheets %}
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-{% endblock %}
 
 {% block body %}
     <!-- list -->
@@ -38,7 +35,7 @@
                                     {{ file.type }}
                                 </div>
                                 <div class="text-sm font-normal tracking-wide ml-4">
-                                    <a href="{{ path('file_delete', {id: file.id}) }}">Delete</a>
+                                    <a href="{{ path('file_delete', {id: file.id, projet:projet.id} ) }}">Delete</a>
                                 </div>
                             </div>
                         {% else %}

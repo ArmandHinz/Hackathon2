@@ -5,16 +5,19 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         
         {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+            <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css" />
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
+            <link rel="icon" type="image/gif" href="/assets/images/kebabjsphp.png" />
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
     </head>
     <body>
-
+ {{ include('nav.html.twig') }}
         {% block body %}{% endblock %}
             
 
@@ -22,6 +25,12 @@
             {{ encore_entry_script_tags('app') }}
             <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
+            <script>
+                module.exports = {
+                    plugins: [require('@tailwindcss/forms'),]
+                };
+            </script>
+
         {% endblock %}
     </body>
 </html>
