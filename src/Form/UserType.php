@@ -8,7 +8,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Techno;
-
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class UserType extends AbstractType
 {
@@ -27,8 +29,10 @@ class UserType extends AbstractType
                     'attr' => [
                         'class' => 'uk-select',
                     ]
-                ]
-            );
+                ])
+            ->add('posterFile', FileType::class, [
+                'required'      => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
