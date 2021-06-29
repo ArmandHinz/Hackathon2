@@ -19,7 +19,7 @@ class MessageSujetType extends AbstractType
                 TextareaType::class,
                 [
                     'attr' => [
-                        'class' => 'bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-100 h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white',
+                        'class' => 'bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-100 h-20  font-medium placeholder-gray-700 focus:outline-none focus:bg-white',
                     ]
                 ]
             );

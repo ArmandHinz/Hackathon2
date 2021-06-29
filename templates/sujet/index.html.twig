@@ -3,11 +3,11 @@
 {% block title %} Forum {% endblock %}
 
 {% block body %}
-    <div class="px-6 py-4 bg-white shadow">
+    <div class="px-6 py-4 bg-green-50 shadow">
         <h1 class="uk-text-center ">Envie de discuter avec les freelancer de la communauté Fiverr?</h1>
     </div>
 
-    <div class="overflow-x-hidden bg-gray-100">
+    <div class="overflow-x-hidden bg-green-50">
         <div class="px-6 py-8 ">
             <div class="container flex justify-between mx-auto">
                 <div class="w-full lg:w-8/12">
@@ -29,9 +29,9 @@
                             <div class="flex items-center justify-between"><span class="font-light text-gray-600">
                                     {{ sujet.date|date('d-m-Y') }}
                                 </span>
-                                <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-green-400 rounded hover:bg-gray-500">
+                                <span class="px-2 py-1 font-bold text-gray-100 rounded" style="background-color: {{ sujet.topic.color }} ">
                                     {{ sujet.topic.name }}
-                                </a>
+                                </span>
                             </div>
                             <div class="mt-2"><a href="{{path('sujet_show', {id: sujet.id} ) }}" class="text-2xl font-bold text-gray-700 hover:underline">{{ sujet.name }}</a>
                                 <p class="mt-2 text-gray-600">
