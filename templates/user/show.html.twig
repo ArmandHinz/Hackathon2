@@ -3,6 +3,18 @@
 {% block title %}{{ user.firstName }}{% endblock %}
 
 {% block body %}
-    {{dump(user)}}
-    <a href='{{path('user_edit', {id: user.id}) }}'> Modifier </a>
+    <h1 class="uk-flex uk-flex-center uk-align-center"> Hello {{ app.user.firstname }} </h1>
+    <h4 class="uk-flex uk-flex-center uk-align-center">Name : {{ app.user.firstname }}</h4><br>
+    <h4 class="uk-flex uk-flex-center uk-align-center">LastName : {{ app.user.lastname }}</h4><br>
+    <h4 class="uk-flex uk-flex-center uk-align-center">Email : {{ app.user.email }}</h4><br>
+    <h4 class="uk-flex uk-flex-center uk-align-center">Avatar : </h4>
+        {% if app.user.avatar is null %}
+            You don't have avatar  
+        {% else %}
+                <img class="uk-flex uk-flex-center uk-align-center img_test" src="{{ app.user.avatar.url }}" alt="avatar"/>
+        {% endif %}
+
+    <a class="uk-flex uk-flex-center uk-align-center"href="{{ path('change_avatar')}}">Change avatar</a>
+    <br>
+    <a class="uk-flex uk-flex-center uk-align-center"href='{{path('user_edit', {id: user.id}) }}'> Edit </a>
 {% endblock %}

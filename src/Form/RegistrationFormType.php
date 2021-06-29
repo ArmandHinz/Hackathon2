@@ -61,16 +61,6 @@ class RegistrationFormType extends AbstractType
                     'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
                 ]
             ])
-            ->add('technos', EntityType::class,[
-                'mapped' => false,
-                'class' => Techno::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,
-                'attr' => [
-                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
-                ]
-            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [

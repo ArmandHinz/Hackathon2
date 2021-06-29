@@ -3,40 +3,38 @@
 {% block title %}Index Projet{% endblock %}
 
 {% block body %}
-    <ul>
+    <div class="grid grid-flow-col grid-cols-3 gap-4 ml-lg-5">
         {% for projet in projets %}
-        <div class="uk-card uk-card-default uk-width-1-2@m">
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">{{ projet.name }}</h3>
+            <div class="mt-6">
+                <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
+                    <div class="mt-2"><a href="{{ path('projet_show', {'id': projet.id}) }}" class="text-2xl font-bold text-gray-700 hover:underline">{{ projet.name }}</a>
+                        <p class="mt-2 text-gray-600">
+                            {{ projet.description }}
+                        </p>
+                    </div>
+                    <hr/>
+                    <div class="flex items-center justify-between mt-4">
+                        {% if app.user.id == projet.user.id %}
+                            <a href="{{ path('projet_edit', {'id': projet.id}) }}" class="uk-button uk-button-text uk-align-right">editer</a>
+                            <a href="{{ path('chanel_add', {'projet': projet.id}) }}" class="uk-button uk-button-text uk-align-right">Ajouter chanel</a>
+                        {% endif %}
+                        {% for chanel in projet.chanel %}
+                            <li class="">
+                            {% if chanel.isValidate == 1 %}
+                                {{ chanel.techno.name }} <p>Freelance trouvé!</p>
+                            {% else %}
+                                {{ chanel.techno.name }}
+                                    {% if app.user.roles.0 == "ROLE_FREELANCE" %}
+                                        <a class="px-2 py-1 font-bold text-gray-100 rounded" style="background-color: green " href="{{ path('chanel_add_user', {'id': chanel.id}) }}">Rejoindre</a>
+                                    {% endif %}
+                            </li>
+                            {% endif %}
+                            <a href="{{ path('projet_show', {'id': projet.id}) }}" class="uk-button uk-button-text uk-align-right">Participer au projet</a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-            <div class="uk-card-body">
-                <p>{{ projet.description }}</p>
-            </div>
-            <div class="uk-card-footer">
-            {% if app.user.id == projet.user.id %}
-                <a href="{{ path('chanel_add', {'projet': projet.id}) }}">add channel</a>
-                <a href="{{ path('projet_edit', {'id': projet.id}) }}">Edit</a>
-            {% endif %}
-                 {% for chanel in projet.chanel %}
-                    <li>
-                    {% if chanel.isValidate == 1 %}
-                        {{ chanel.techno.name }} <p>Freelance trouvé!</p>
-                    {% else %}
-                        {{ chanel.techno.name }}
-                            {% if app.user.roles.0 == "ROLE_FREELANCE" %}
-                                <a href="{{ path('chanel_add_user', {'id': chanel.id}) }}">NIK</a>
-                            {% endif %}
-                    </li>
-                     {% endif %}
-                {% endfor %}
-                <a href="{{ path('projet_show', {'id': projet.id}) }}">show</a>
-            </div>
-        </div>
         {% endfor %}
-    </ul>
+    </div>
     <a href="{{ path('projet_new') }}">New projet</a>
 {% endblock %}
