@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TechnoRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,9 +25,20 @@ class Techno
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="technos")
+     * @ORM\OneToMany(targetEntity=Chanel::class, mappedBy="techno")
+     */
+    private $chanels;
+
+    /**
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="techno")
      */
     private $user;
+
+    public function __construct()
+    {
+        $this->chanels = new ArrayCollection();
+        $this->user = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -44,14 +57,62 @@ class Techno
         return $this;
     }
 
-    public function getUser(): ?User
+    /**
+     * @return Collection|Chanel[]
+     */
+    public function getChanels(): Collection
+    {
+        return $this->chanels;
+    }
+
+    public function addChanel(Chanel $chanel): self
+    {
+        if (!$this->chanels->contains($chanel)) {
+            $this->chanels[] = $chanel;
+            $chanel->setTechno($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChanel(Chanel $chanel): self
+    {
+        if ($this->chanels->removeElement($chanel)) {
+            // set the owning side to null (unless already changed)
+            if ($chanel->getTechno() === $this) {
+                $chanel->setTechno(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUser(): Collection
     {
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function addUser(User $user): self
     {
-        $this->user = $user;
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+            $user->setTechno($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->user->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getTechno() === $this) {
+                $user->setTechno(null);
+            }
+        }
 
         return $this;
     }

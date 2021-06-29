@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index Projet{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for projet in projets %}
+        <li>
+            {{ projet.name }}
+            <a href="{{ path('projet_show', {'id': projet.id}) }}">show</a>
+            <a href="{{ path('projet_edit', {'id': projet.id}) }}">Edit</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ path('projet_new') }}">New projet</a>
+{% endblock %}

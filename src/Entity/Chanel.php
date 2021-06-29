@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ChanelRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,11 +20,6 @@ class Chanel
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $name;
-
-    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $isValidate;
@@ -34,24 +31,35 @@ class Chanel
 
     /**
      * @ORM\ManyToOne(targetEntity=Projet::class, inversedBy="chanel")
+     * @ORM\JoinColumn(onDelete="CASCADE") 
      */
     private $projet;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="chanels")
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Techno::class, inversedBy="chanels")
+     */
+    private $techno;
+
+    /**
+     * @ORM\OneToMany(targetEntity=MessageChanel::class, mappedBy="chanel")
+     */
+    private $messageChanels;
+
+    public function __construct()
+    {
+        $this->messageChanels = new ArrayCollection();
+    }
+
+    
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     public function getIsValidate(): ?bool
@@ -86,6 +94,60 @@ class Chanel
     public function setProjet(?Projet $projet): self
     {
         $this->projet = $projet;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getTechno(): ?Techno
+    {
+        return $this->techno;
+    }
+
+    public function setTechno(?Techno $techno): self
+    {
+        $this->techno = $techno;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MessageChanel[]
+     */
+    public function getMessageChanels(): Collection
+    {
+        return $this->messageChanels;
+    }
+
+    public function addMessageChanel(MessageChanel $messageChanel): self
+    {
+        if (!$this->messageChanels->contains($messageChanel)) {
+            $this->messageChanels[] = $messageChanel;
+            $messageChanel->setChanel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessageChanel(MessageChanel $messageChanel): self
+    {
+        if ($this->messageChanels->removeElement($messageChanel)) {
+            // set the owning side to null (unless already changed)
+            if ($messageChanel->getChanel() === $this) {
+                $messageChanel->setChanel(null);
+            }
+        }
 
         return $this;
     }
