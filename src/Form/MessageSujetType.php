@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\MessageSujet;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MessageSujetType extends AbstractType
@@ -12,7 +13,15 @@ class MessageSujetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('message');
+            ->add(
+                'message',
+                TextType::class,
+                [
+                    'attr' => [
+                        'class' => 'uk-textarea uk-width-1-1',
+                    ]
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)
