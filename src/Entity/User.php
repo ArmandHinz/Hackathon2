@@ -83,15 +83,41 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\ManyToOne(targetEntity=Techno::class, inversedBy="users")
      */
     private $techno;
+  
+     /**
+     * @ORM\OneToMany(targetEntity=Chanel::class, mappedBy="user")
+     */
+    private $chanels;
+
+    
+
 
     public function __construct()
     {
         $this->projets = new ArrayCollection();
-        $this->technos = new ArrayCollection();
         $this->sujets = new ArrayCollection();
         $this->messageSujets = new ArrayCollection();
         $this->messageProjets = new ArrayCollection();
+        $this->chanels = new ArrayCollection();
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTechnos(): ArrayCollection
+    {
+        return $this->technos;
+    }
+
+    /**
+     * @param ArrayCollection $technos
+     */
+    public function setTechnos(ArrayCollection $technos): void
+    {
+        $this->technos = $technos;
+    }
+
+
 
     public function getId(): ?int
     {
@@ -360,12 +386,44 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+
+     * @return Collection|Chanel[]
+     */
+    public function getChanels(): Collection
+    {
+        return $this->chanels;
+    }
+
+    public function addChanel(Chanel $chanel): self
+    {
+        if (!$this->chanels->contains($chanel)) {
+            $this->chanels[] = $chanel;
+            $chanel->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChanel(Chanel $chanel): self
+    {
+        if ($this->chanels->removeElement($chanel)) {
+            // set the owning side to null (unless already changed)
+            if ($chanel->getUser() === $this) {
+                $chanel->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * Transform to string
      * @return string
      */
     public function __toString()
     {
         return (string) $this->getId();
+
     }
 
     public function getTechno(): ?Techno

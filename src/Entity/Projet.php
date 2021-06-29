@@ -49,10 +49,20 @@ class Projet
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity=File::class, mappedBy="project")
+     */
+    private $files;
+
     public function __construct()
     {
         $this->messageProjet = new ArrayCollection();
         $this->chanel = new ArrayCollection();
+
+        $this->files = new ArrayCollection();
+
+        $this->techno = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -164,6 +174,36 @@ class Projet
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|File[]
+     */
+    public function getFiles(): Collection
+    {
+        return $this->files;
+    }
+
+    public function addFile(File $file): self
+    {
+        if (!$this->files->contains($file)) {
+            $this->files[] = $file;
+            $file->setProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFile(File $file): self
+    {
+        if ($this->files->removeElement($file)) {
+            // set the owning side to null (unless already changed)
+            if ($file->getProject() === $this) {
+                $file->setProject(null);
+            }
+        }
 
         return $this;
     }

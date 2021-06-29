@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ projet.name }}{% endblock %}
+
+{% block body %}
+    <h2>{{ projet.name }}</h2>
+        <p>{{ projet.description }}</p>
+        <a href="{{ path('chanel_add', {'projet': projet.id}) }}">add channel</a>
+    <h2>Chanels</h2>
+        <ul>
+        {% for chanel in projet.chanel %}
+            <li>
+                {{ chanel.techno.name }}
+                <a href="{{ path('chanel_add_user', {'id': chanel.id}) }}">NIK</a>
+                <a href="{{ path('chanel_show', {'id': chanel.id}) }}">show</a>
+                <a href="{{ path('chanel_edit', {'id': chanel.id}) }}">edit</a>
+            </li>
+        {% endfor %}
+        </ul>
+
+
+    {{ include('file/index.html.twig') }}
+        <a href="{{ path('projet_index') }}">back to list</a>
+{% endblock %}

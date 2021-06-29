@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit chanel{% endblock %}
+
+{% block body %}
+    <h1>Edit chanel</h1>
+
+    {{ include('chanel/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('projet_show', {'id': chanel.projet.id}) }}">back to projet</a>
+
+    {{ include('chanel/_delete_form.html.twig') }}
+{% endblock %}
