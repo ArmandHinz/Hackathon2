@@ -21,7 +21,7 @@ class SearchSujetType extends AbstractType
                     'class' => Topic::class,
                     'choice_label' => 'name',
                     'attr' => [
-                        'class' => 'uk-select uk-width-1-1'
+                        'class' => 'w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"'
                     ]
                 ]
             );
