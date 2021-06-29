@@ -4,5 +4,19 @@
 
 {% block body %}
     {{dump(user)}}
-    <a href='{{path('user_edit', {id: user.id}) }}'> Modifier </a>
+    <h1> Hello {{ app.user.firstname }} </h1>
+    <h4>Name :{{ app.user.firstname }}</h4><br>
+    <h4>LastName :{{ app.user.lastname }}</h4><br>
+    <h4>Email :{{ app.user.email }}</h4><br>
+    <h4>Avatar : </h4>
+        {% if app.user.avatar is null %}
+            You don't have avatar  
+        {% else %}
+            {% for avatar in avatars %}
+                {{ app.user.avatar.url }}
+            {% endfor %}
+        {% endif %}
+    <a href="{{ path('change_avatar')}}">Change avatar</a>
+    <br>
+    <a href='{{path('user_edit', {id: user.id}) }}'> Edit </a>
 {% endblock %}

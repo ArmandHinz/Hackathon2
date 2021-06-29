@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Form\TechnoType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 
 /**
@@ -42,10 +43,12 @@ class UserController extends AbstractController
      */
     public function show(User $user): Response
     {
+        $avatars = $user->getAvatar();
         return $this->render(
             'user/show.html.twig',
             [
                 'user' => $user,
+                'avatars' => $avatars
             ]
         );
     }
