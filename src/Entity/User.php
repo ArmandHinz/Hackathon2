@@ -65,11 +65,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $avatar;
 
     /**
-     * @ORM\OneToMany(targetEntity=Techno::class, mappedBy="user")
-     */
-    private $technos;
-
-    /**
      * @ORM\OneToMany(targetEntity=Sujet::class, mappedBy="user")
      */
     private $sujets;
@@ -84,6 +79,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $messageProjets;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Chanel::class, mappedBy="user")
+     */
+    private $chanels;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Techno::class, inversedBy="user")
+     */
+    private $techno;
+
     public function __construct()
     {
         $this->projets = new ArrayCollection();
@@ -91,6 +96,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->sujets = new ArrayCollection();
         $this->messageSujets = new ArrayCollection();
         $this->messageProjets = new ArrayCollection();
+        $this->chanels = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -271,36 +277,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Techno[]
-     */
-    public function getTechnos(): Collection
-    {
-        return $this->technos;
-    }
-
-    public function addTechno(Techno $techno): self
-    {
-        if (!$this->technos->contains($techno)) {
-            $this->technos[] = $techno;
-            $techno->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTechno(Techno $techno): self
-    {
-        if ($this->technos->removeElement($techno)) {
-            // set the owning side to null (unless already changed)
-            if ($techno->getUser() === $this) {
-                $techno->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Sujet[]
      */
     public function getSujets(): Collection
@@ -391,11 +367,53 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+
+     * @return Collection|Chanel[]
+     */
+    public function getChanels(): Collection
+    {
+        return $this->chanels;
+    }
+
+    public function addChanel(Chanel $chanel): self
+    {
+        if (!$this->chanels->contains($chanel)) {
+            $this->chanels[] = $chanel;
+            $chanel->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChanel(Chanel $chanel): self
+    {
+        if ($this->chanels->removeElement($chanel)) {
+            // set the owning side to null (unless already changed)
+            if ($chanel->getUser() === $this) {
+                $chanel->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTechno(): ?Techno
+    {
+        return $this->techno;
+    }
+
+    public function setTechno(?Techno $techno): self
+    {
+        $this->techno = $techno;
+
+        return $this;
+
      * Transform to string
      * @return string
      */
     public function __toString()
     {
         return (string) $this->getId();
+
     }
 }

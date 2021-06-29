@@ -58,7 +58,11 @@ class Projet
     {
         $this->messageProjet = new ArrayCollection();
         $this->chanel = new ArrayCollection();
+
         $this->files = new ArrayCollection();
+
+        $this->techno = new ArrayCollection();
+
     }
 
     public function getId(): ?int
