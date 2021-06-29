@@ -1,10 +1,10 @@
+{% extends "base.html.twig" %}
 
-
-{% block title %}Hello AvatarController!{% endblock %}
+{% block title %}Hello !{% endblock %}
 
 {% block body %}
-test avatar
 
+<div class="uk-width-1-3 uk-align-center">
     {{ form_start(form) }}
 
     {{ form_widget(form) }}
@@ -12,4 +12,5 @@ test avatar
     <input type='submit' value='Add avatar'>
 
     {{ form_end(form) }}
+</div>
 {% endblock %}

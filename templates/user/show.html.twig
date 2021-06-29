@@ -12,10 +12,11 @@
         {% if app.user.avatar is null %}
             You don't have avatar  
         {% else %}
-            {% for avatar in avatars %}
-                {{ app.user.avatar.url }}
-            {% endfor %}
+                <img class="uk-flex uk-flex-center uk-align-center" src="{{ app.user.avatar.url }}" alt="avatar"/>
         {% endif %}
+
+
+
     <a class="uk-flex uk-flex-center uk-align-center"href="{{ path('change_avatar')}}">Change avatar</a>
     <br>
     <a class="uk-flex uk-flex-center uk-align-center"href='{{path('user_edit', {id: user.id}) }}'> Edit </a>
