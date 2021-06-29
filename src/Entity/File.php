@@ -32,6 +32,11 @@ class File
      */
     private $type;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Projet::class, inversedBy="files")
+     */
+    private $project;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class File
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getProject(): ?Projet
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Projet $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }
