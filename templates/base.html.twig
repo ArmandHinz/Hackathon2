@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color: #6de09f">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -7,13 +7,16 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css" />
         {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
+        {% block javascripts %}
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
     </body>
 </html>

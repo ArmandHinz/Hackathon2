@@ -3,33 +3,48 @@
 {% block title %} All Subjects {% endblock %}
 
 {% block body %}
-    <h1>Tous les sujets de la table sujet : </h1>
+    <h1 class="uk-text-center">Envie de discutter avec les freelancer de la communauté Fiverr?</h1>
+    <div class="uk-flex uk-flex-center">
     {{ form_start(form) }}
     {{ form_widget(form) }}
-        <button>Search</button>
+        <button class="uk-button  uk-align-center">Search</button>
     {{ form_end(form) }}
+    </div>
+    <a class="uk-button uk-button-default uk-margin-large-right uk-align-right" href="{{ path('sujet_new') }}">
+        Poster un nouveau sujet
+    </a>
     {% for sujet in sujets %}
-       
-            <h2>{{ loop.index }} / {{ sujet.name }}</h2>
+    <div class="uk-card uk-card-default uk-width-1-2@m uk-align-center" style="box-shadow:rgba(0, 0, 255, .2);">
+        <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                {#<div class="uk-width-auto">
+                    <img class="uk-border-circle" width="40" height="40" src="images/avatar.jpg">
+                    {{ sujet.user.firstName }}
+                </div>#}
+                <div class="uk-width-expand">
+                    <h3 class="uk-card-title uk-margin-remove-bottom">{{ sujet.name }}</h3>
+                    <p class="uk-text-meta uk-margin-remove-top"><time >{{ sujet.date|date('d-m-Y') }}</time></p>
+                </div>
+                <div class="uk-width-expand uk-text-right">
+                    <p>{{ sujet.topic.name }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="uk-card-body">
             <p>{{ sujet.shortDescription }}</p>
-            <p>{{ sujet.user.firstName }}</p>
-            <p>{{ sujet.topic.name }}</p>
-
-            <a href="{{ path("sujet_show", {id: sujet.id}) }}">voir le sujet</a>
+        </div>
+        <div class="uk-card-footer">
+            <a href="{{ path("sujet_show", {id: sujet.id}) }}" class="uk-button uk-button-text">Discuter</a>
             {% if app.user.id == sujet.user.id %}
-                <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}">editer</a>
+            <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}" class="uk-button uk-button-text uk-align-right">editer</a>
             {{ include('sujet/_delete_form.html.twig') }}
-            {% endif %}
-            <br>
-            <hr>
+        {% endif %}
+        </div>
+    </div>
     {% else %}
         Aucun sujet trouvé.
     {% endfor %}
-
-    <a href="{{ path('sujet_new') }}">
+    <a class="uk-button uk-button-default uk-align-center uk-width-1-3 " href="{{ path('sujet_new') }}">
         Poster un nouveau sujet
-    </a>
-    <a href="{#{ path('home') }#}">
-        Retour à l'accueil
     </a>
 {% endblock %}

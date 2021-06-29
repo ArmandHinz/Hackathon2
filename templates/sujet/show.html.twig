@@ -3,16 +3,73 @@
 {% block title %}{{ sujet.name }}{% endblock %}
 
 {% block body %}
-    <h1>Tous les messages du sujet : </h1>
+    <div class="uk-card uk-card-default uk-width-1-2@m uk-align-center uk-margin-large-top">
+        <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                {#<div class="uk-width-auto">
+                    <img class="uk-border-circle" width="40" height="40" src="images/avatar.jpg">
+                </div>#}
+                <div class="uk-width-expand">
+                    <h3 class="uk-card-title uk-margin-remove-bottom">{{ sujet.name }}</h3>
+                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">{{ sujet.date|date('d-m-Y') }}</time></p>
+                </div>
+            </div>
+        </div>
+        <div class="uk-card-body">
+            <p>{{sujet.longDescription}}</p>
+        </div>
+    </div>
     {% for message in sujet.messageSujets %}
-    <li>  autheur {{ message.user.firstName }} </li>
-        message {{ message.message }} 
+    {% if (loop.index %2) != 0 %} 
+      <div class="uk-card uk-card-default uk-width-1-2@m uk-align-center uk-margin-small-right">
+        <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                {#<div class="uk-width-auto">
+                    <img class="uk-border-circle" width="40" height="40" src="images/avatar.jpg">
+                </div>#}
+                <div class="uk-width-expand">
+                    <h3 class="uk-card-title uk-margin-remove-bottom">{{message.user.firstName}}</h3>
+                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">{{message.date|date('d-m-Y')}}</time></p>
+                </div>
+            </div>
+        </div>
+        <div class="uk-card-body">
+            <p>{{ message.message }}</p>
+        </div>
         {% if app.user.id == message.user.id %}
-        <a href="{{ path('comment_sujet_edit', {id: message.id}) }}">modifier</a>
-        {{ include('comment_sujet/_delete_form.html.twig') }}
+        <div class="uk-card-footer">
+            <a href="{{ path('comment_sujet_edit', {id: message.id}) }}" class="uk-button uk-button-text">modifier</a>
+            {{ include('comment_sujet/_delete_form.html.twig') }}
+        </div>
         {% endif %}
-        <br>
-        <hr>
+    </div>
+    {% else %}  
+    <div class="uk-card uk-card-default uk-width-1-2@m uk-align-center uk-margin-left">
+        <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                {#<div class="uk-width-auto">
+                    <img class="uk-border-circle" width="40" height="40" src="images/avatar.jpg">
+                     <li>  autheur {{ message.user.firstName }} </li>
+                </div>#}
+                <div class="uk-width-expand">
+                    <h3 class="uk-card-title uk-margin-remove-bottom">{{message.user.firstName}}</h3>
+                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">{{message.date|date('d-m-Y')}}</time></p>
+                </div>
+            </div>
+        </div>
+        <div class="uk-card-body">
+            <p>{{ message.message }}</p>
+        </div>
+        {% if app.user.id == message.user.id %}
+        <div class="uk-card-footer">
+            <a href="{{ path('comment_sujet_edit', {id: message.id}) }}" class="uk-button uk-button-text">modifier</a>
+            {{ include('comment_sujet/_delete_form.html.twig') }}
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+
 
     {% else %}
         Aucun sujet trouvé.

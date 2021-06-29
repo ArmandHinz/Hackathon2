@@ -19,7 +19,10 @@ class SearchSujetType extends AbstractType
                 [
                     'placeholder' => 'Choisi un topic',
                     'class' => Topic::class,
-                    'choice_label' => 'name'
+                    'choice_label' => 'name',
+                    'attr' => [
+                        'class' => 'uk-select uk-width-1-1'
+                    ]
                 ]
             );
     }
