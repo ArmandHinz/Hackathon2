@@ -4,11 +4,10 @@
 namespace App\Controller;
 
 use App\Entity\File;
+use App\Entity\Projet;
 use App\Form\UploadFileType;
 use App\Services\Slugify;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,9 +22,10 @@ class FileController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
 
     /**
      * @param Request $request
+     * @param Slugify $slugify
+     * @param Projet $projet
      * @return Response
      * @Route("/", name="index")
-     * @throws \Doctrine\ORM\ORMException
      */
     public function index(Request $request, Slugify $slugify): Response
     {
@@ -36,13 +36,14 @@ class FileController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $brochureFile */
+
             $uploadedFile = $form->get('file')->getData();
 
             // this condition is needed because the 'brochure' field is not required
             // so the PDF file must be processed only when a file is uploaded
             if ($uploadedFile) {
                 $extension = $uploadedFile->guessExtension();
+
                 $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugify->generate($originalFilename);
@@ -63,6 +64,7 @@ class FileController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstract
                 $file->setSrc($newFilename);
                 $file->setName($safeFilename);
                 $file->setType($extension);
+                $file->setProject(null);
             }
 
             // ... persist the $file variable or any other work
