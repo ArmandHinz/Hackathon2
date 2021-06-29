@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} files {% endblock %}
+
+{% block stylesheets %}
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="flex justify-evenly">
+        <!-- list -->
+        <div class="w-2/6">
+            <div class="flex justify-center p-4 px-3 py-10">
+                <div class="w-full max-w-md">
+                    <div class="bg-white shadow-md rounded-lg px-3 py-2 mb-4">
+                        <div class="block text-gray-700 text-lg font-semibold py-2 px-2">
+                            Files list
+                        </div>
+                        <div class="flex items-center bg-gray-200 rounded-md">
+                            <div class="pl-2">
+                                <svg class="fill-current text-gray-500 w-6 h-6" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 24 24">
+                                    <path class="heroicon-ui"
+                                          d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                                </svg>
+                            </div>
+                            <input
+                                    class="w-full rounded-md bg-gray-200 text-gray-700 leading-tight focus:outline-none py-2 px-2"
+                                    id="search" type="text" placeholder="Search files">
+                        </div>
+                        <div class="py-3 text-sm">
+                            {% for file in files %}
+                                <div class="flex justify-start cursor-pointer text-gray-700 hover:text-blue-400 hover:bg-blue-100 rounded-md px-2 py-2 my-2">
+                                    <span class="bg-gray-400 h-2 w-2 m-2 rounded-full"></span>
+                                    <div class="flex-grow font-medium">
+                                        <a class="" href="{{ asset('assets/uploads/' ~ file.src) }}">{{ file.name }}</a>
+                                    </div>
+                                        <div class="text-sm font-normal text-gray-500 tracking-wide">
+                                            {{ file.type }}
+                                        </div>
+                                        <div class="text-sm font-normal tracking-wide ml-4">
+                                            <a class="hover:text-blue-700" href="{{ path('file_delete', {id: file.id}) }}">Delete</a>
+                                        </div>
+
+
+                                </div>
+                            {% else %}
+                                pas de fichiers
+                            {% endfor %}
+
+                        </div>
+                        <div class="block bg-gray-200 text-sm text-right py-2 px-3 -mx-3 -mb-2 rounded-b-lg">
+                            {{ form_start(form) }}
+                            {{ form_widget(form.file, {'attr': {'class': 'font-light'}}) }}
+                                <button class="mt-2 px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">{{ button_label|default('Upload') }}</button>
+                            {{ form_end(form) }}
+                            {% for category, messages in app.flashes %}
+                                {% for message in messages %}
+                                    <div class="text-red-700">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
