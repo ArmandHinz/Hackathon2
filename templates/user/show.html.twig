@@ -5,18 +5,26 @@
 {% block body %}
 <div class="uk-background-default ">
     <h1 class="uk-flex uk-flex-center uk-align-center"> Hello {{ app.user.firstname }} </h1>
-    <h4 class="uk-flex uk-flex-center uk-align-center">Name : {{ app.user.firstname }}</h4><br>
-    <h4 class="uk-flex uk-flex-center uk-align-center">LastName : {{ app.user.lastname }}</h4><br>
-    <h4 class="uk-flex uk-flex-center uk-align-center">Email : {{ app.user.email }}</h4><br>
-    <h4 class="uk-flex uk-flex-center uk-align-center">Avatar : </h4>
+    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">Name : {{ app.user.firstname }}</h4><br>
+    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">LastName : {{ app.user.lastname }}</h4><br>
+    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">Email : {{ app.user.email }}</h4><br>
+    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">Email : {{ app.user.description }}</h4><br>
+    <pre>
+        {{ dump(app.user) }}
+    </pre>
+    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">Avatar : </h4>
         {% if app.user.avatar is null %}
             You don't have avatar  
         {% else %}
+            <div>
                 <img class="uk-flex uk-flex-center uk-align-center img_test" src="{{ app.user.avatar.url }}" alt="avatar"/>
+            </div>
         {% endif %}
 
-    <a class="uk-flex uk-flex-center uk-align-center uk-link-text"href="{{ path('change_avatar')}}">Change avatar</a>
+        
+
+    <a class="uk-flex uk-flex-center uk-align-center uk-link-text uk-text-lead"href="{{ path('change_avatar')}}">Change avatar</a>
     <br>
-    <a class="uk-flex uk-flex-center uk-align-center uk-link-text"href='{{path('user_edit', {id: user.id}) }}'> Edit </a>
+    <a class="uk-flex uk-flex-center uk-align-center uk-link-text uk-text-lead"href='{{path('user_edit', {id: user.id}) }}'> Edit </a>
 </div>
 {% endblock %}
