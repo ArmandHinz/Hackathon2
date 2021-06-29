@@ -3,8 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
+        
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
             <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -20,15 +19,18 @@
     <body>
  {{ include('nav.html.twig') }}
         {% block body %}{% endblock %}
+            
+
         {% block javascripts %}
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
             {{ encore_entry_script_tags('app') }}
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
             <script>
                 module.exports = {
                     plugins: [require('@tailwindcss/forms'),]
                 };
             </script>
+
         {% endblock %}
     </body>
 </html>
