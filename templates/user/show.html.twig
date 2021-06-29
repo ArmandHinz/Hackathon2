@@ -5,16 +5,42 @@
 {% block body %}
 <div class="uk-background-default ">
     <h1 class="uk-flex uk-flex-center uk-align-center"> Hello {{ app.user.firstname }} </h1>
-    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">Name : {{ app.user.firstname }}</h4><br>
-    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">LastName : {{ app.user.lastname }}</h4><br>
-    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">Email : {{ app.user.email }}</h4><br>
-    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">Email : {{ app.user.description }}</h4><br>
-    <pre>
-        {{ dump(app.user) }}
-    </pre>
-    <h4 class="uk-flex uk-flex-center uk-align-center uk-text-lead">Avatar : </h4>
+    
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Name : </h4> 
+        <div class="uk-flex uk-flex-center uk-align-center">
+            {{ app.user.firstname }}<br>
+        </div>
+ 
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title">LastName : </h4> 
+        <div class="uk-flex uk-flex-center uk-align-center">
+            {{ app.user.lastname }}<br>
+        </div>
+
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Email : </h4> 
+        <div class="uk-flex uk-flex-center uk-align-center">
+            {{ app.user.email }}<br>
+        </div>
+
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Description : </h4> 
+        <div class="uk-flex uk-flex-center uk-align-center">
+            {{ app.user.description }}<br>
+        </div>
+
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Techno : </h4> 
+        <div class="uk-flex uk-flex-center uk-align-center">
+            {{ app.user.techno }}
+        </div>
+        {% if app.user.techno is null %}
+            <p class="uk-flex uk-flex-center uk-align-center uk-text-lead"> You don't have techno</p>  
+        {% else %}
+            {% for techno in technos %}
+                {{ app.user.techno }}
+            {% endfor %}
+        {% endif %}
+
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Avatar : </h4>
         {% if app.user.avatar is null %}
-            You don't have avatar  
+            <p class="uk-flex uk-flex-center uk-align-center">You don't have avatar</p>
         {% else %}
             <div>
                 <img class="uk-flex uk-flex-center uk-align-center img_test" src="{{ app.user.avatar.url }}" alt="avatar"/>
