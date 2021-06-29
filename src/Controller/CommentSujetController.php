@@ -37,7 +37,6 @@ class CommentSujetController extends AbstractController
 
     /**
      * Delete a subject
-     *
      * @Route("/delete/{id}", name="delete")
      */
     public function delete(MessageSujet $messageSujet): response

@@ -65,11 +65,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $avatar;
 
     /**
-     * @ORM\OneToMany(targetEntity=Techno::class, mappedBy="user")
-     */
-    private $technos;
-
-    /**
      * @ORM\OneToMany(targetEntity=Sujet::class, mappedBy="user")
      */
     private $sujets;
@@ -83,6 +78,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\OneToMany(targetEntity=MessageProjet::class, mappedBy="user")
      */
     private $messageProjets;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Techno::class, inversedBy="users")
+     */
+    private $techno;
 
     public function __construct()
     {
@@ -271,36 +271,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Techno[]
-     */
-    public function getTechnos(): Collection
-    {
-        return $this->technos;
-    }
-
-    public function addTechno(Techno $techno): self
-    {
-        if (!$this->technos->contains($techno)) {
-            $this->technos[] = $techno;
-            $techno->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTechno(Techno $techno): self
-    {
-        if ($this->technos->removeElement($techno)) {
-            // set the owning side to null (unless already changed)
-            if ($techno->getUser() === $this) {
-                $techno->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Sujet[]
      */
     public function getSujets(): Collection
@@ -386,7 +356,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $messageProjet->setUser(null);
             }
         }
-
         return $this;
     }
 
@@ -397,5 +366,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString()
     {
         return (string) $this->getId();
+    }
+
+    public function getTechno(): ?Techno
+    {
+        return $this->techno;
+    }
+
+    public function setTechno(?Techno $techno): self
+    {
+        $this->techno = $techno;
+
+        return $this;
     }
 }
