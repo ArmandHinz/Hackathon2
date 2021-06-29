@@ -44,6 +44,7 @@ class RegistrationFormType extends AbstractType
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('description', TextareaType::class)
+
             ->add('email', EmailType::class)
             ->add('technos', EntityType::class, [
                 'class' => Techno::class,

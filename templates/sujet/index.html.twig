@@ -1,50 +1,100 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} All Subjects {% endblock %}
+{% block title %} Forum {% endblock %}
 
 {% block body %}
-    <h1 class="uk-text-center">Envie de discutter avec les freelancer de la communauté Fiverr?</h1>
-    <div class="uk-flex uk-flex-center">
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-        <button class="uk-button  uk-align-center">Search</button>
-    {{ form_end(form) }}
+    <div class="px-6 py-4 bg-white shadow">
+        <h1 class="uk-text-center ">Envie de discuter avec les freelancer de la communauté Fiverr?</h1>
     </div>
-    <a class="uk-button uk-button-default uk-margin-large-right uk-align-right" href="{{ path('sujet_new') }}">
-        Poster un nouveau sujet
-    </a>
-    {% for sujet in sujets %}
-    <div class="uk-card uk-card-default uk-width-1-2@m uk-align-center" style="box-shadow:rgba(0, 0, 255, .2);">
-        <div class="uk-card-header">
-            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                {#<div class="uk-width-auto">
-                    <img class="uk-border-circle" width="40" height="40" src="images/avatar.jpg">
-                    {{ sujet.user.firstName }}
-                </div>#}
-                <div class="uk-width-expand">
-                    <h3 class="uk-card-title uk-margin-remove-bottom">{{ sujet.name }}</h3>
-                    <p class="uk-text-meta uk-margin-remove-top"><time >{{ sujet.date|date('d-m-Y') }}</time></p>
+
+    <div class="overflow-x-hidden bg-gray-100">
+        <div class="px-6 py-8 ">
+            <div class="container flex justify-between mx-auto">
+                <div class="w-full lg:w-8/12">
+                    <div class="flex items-center justify-between">
+                        <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Post</h1>
+                        <div>
+                            <div class="uk-flex uk-flex-center">
+                                {{ form_start(form) }}
+                                {{ form_widget(form.search) }}
+                                <button>Search</button>
+                                {{ form_end(form) }}
+                            </div>
+
+                        </div>
+                    </div>
+                    {% for sujet in sujets %}
+                    <div class="mt-6">
+                        <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
+                            <div class="flex items-center justify-between"><span class="font-light text-gray-600">
+                                    {{ sujet.date|date('d-m-Y') }}
+                                </span>
+                                <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-green-400 rounded hover:bg-gray-500">
+                                    {{ sujet.topic.name }}
+                                </a>
+                            </div>
+                            <div class="mt-2"><a href="{{path('sujet_show', {id: sujet.id} ) }}" class="text-2xl font-bold text-gray-700 hover:underline">{{ sujet.name }}</a>
+                                <p class="mt-2 text-gray-600">
+                                    {{ sujet.shortDescription }}
+                                </p>
+                                <p class="font-bold text-gray-700 hover:underline text-right">{{ sujet.user.firstname }} {{ sujet.user.lastname }}</p>
+
+                            </div>
+                            <hr/>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="{{ path("sujet_show", {id: sujet.id}) }}" class="uk-button uk-button-text uk-align-right">Discuter</a>
+                                {% if app.user.id == sujet.user.id %}
+                                    <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}" class="uk-button uk-button-text uk-align-right">editer</a>
+                                    {{ include('sujet/_delete_form.html.twig') }}
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="mt-8">
+                        <div class="flex">
+                            <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-500 bg-white rounded-md cursor-not-allowed">
+                                previous
+                            </a>
+
+                            <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
+                                1
+                            </a>
+
+                            <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
+                                2
+                            </a>
+
+                            <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
+                                3
+                            </a>
+
+                            <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
+                                Next
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="uk-width-expand uk-text-right">
-                    <p>{{ sujet.topic.name }}</p>
+
+                    <div class="w-1/5">
+                        <h1 class="text-xl font-bold text-gray-700">Links</h1>
+                        <div class="flex flex-col max-w-sm px-4 py-6  bg-white rounded-lg shadow-md">
+                            <ul>
+                                <li><a href="{{ path('sujet_new') }}" class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
+                                        Create subject</a></li>
+                                <li class="mt-2">
+                                    <a href="{{ path('topic_new') }}" class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
+                                        Create topic
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-        <div class="uk-card-body">
-            <p>{{ sujet.shortDescription }}</p>
-        </div>
-        <div class="uk-card-footer">
-            <a href="{{ path("sujet_show", {id: sujet.id}) }}" class="uk-button uk-button-text">Discuter</a>
-            {% if app.user.id == sujet.user.id %}
-            <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}" class="uk-button uk-button-text uk-align-right">editer</a>
-            {{ include('sujet/_delete_form.html.twig') }}
-        {% endif %}
-        </div>
     </div>
-    {% else %}
-        Aucun sujet trouvé.
-    {% endfor %}
-    <a class="uk-button uk-button-default uk-align-center uk-width-1-3 " href="{{ path('sujet_new') }}">
-        Poster un nouveau sujet
-    </a>
 {% endblock %}

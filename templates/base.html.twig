@@ -7,6 +7,7 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css" />
         {% endblock %}
 
@@ -17,6 +18,12 @@
         {% block javascripts %}
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
+            <script>
+                module.exports = {
+                    plugins: [require('@tailwindcss/forms'),]
+                };
+            </script>
+
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </body>

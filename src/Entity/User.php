@@ -83,7 +83,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\ManyToOne(targetEntity=Techno::class, inversedBy="users")
      */
     private $techno;
-  
+
      /**
      * @ORM\OneToMany(targetEntity=Chanel::class, mappedBy="user")
      */
@@ -94,7 +94,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $messageChanels;
 
-    
+
+
 
 
     public function __construct()
@@ -106,23 +107,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->chanels = new ArrayCollection();
         $this->messageChanels = new ArrayCollection();
     }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTechnos(): ArrayCollection
-    {
-        return $this->technos;
-    }
-
-    /**
-     * @param ArrayCollection $technos
-     */
-    public function setTechnos(ArrayCollection $technos): void
-    {
-        $this->technos = $technos;
-    }
-
 
 
     public function getId(): ?int
