@@ -97,7 +97,7 @@ class FileController extends AbstractController
         $entityManager->remove($file);
         $entityManager->flush();
 
-        if($projet != null){
+        if($projet !== null){
             return $this->redirectToRoute('projet_show', ['id' => $projet]);
 
         }
