@@ -8,6 +8,7 @@ use App\Entity\Projet;
 use App\Form\UploadFileType;
 use App\Services\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +25,6 @@ class FileController extends AbstractController
     /**
      * @param Request $request
      * @param Slugify $slugify
-     * @param Projet $projet
      * @return Response
      * @Route("/", name="index")
      */
@@ -96,6 +96,9 @@ class FileController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($file);
         $entityManager->flush();
+
+        $fileSystem = new Filesystem();
+        $fileSystem->remove('public/assets/uploads/' . $file->getSrc());
 
         if($projet !== null){
             return $this->redirectToRoute('projet_show', ['id' => $projet]);
