@@ -1,5 +1,8 @@
 {% extends "base.html.twig" %}
 {% block body %}
- {% include("user/_form.html.twig") %}
- <a class="uk-flex uk-flex-center uk-align-center" href="{{ path("user_show", {id: app.user.id}) }}">Back to profil</a>
+{{ include('nav.html.twig') }}
+ <div class="uk-flex uk-flex-center uk-align-center uk-padding-large">
+    {% include("user/_form.html.twig") %}
+ </div>
+    <a class="uk-flex uk-flex-center uk-align-center" href="{{ path("user_show", {id: app.user.id}) }}">Back to profil</a>
 {% endblock %}

@@ -3,6 +3,7 @@
 {% block title %}{{ user.firstName }}{% endblock %}
 
 {% block body %}
+{{ include('nav.html.twig') }}
 <div class="uk-background-default ">
     <h1 class="uk-flex uk-flex-center uk-align-center"> Hello {{ app.user.firstname }} </h1>
     
