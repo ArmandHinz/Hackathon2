@@ -10,3 +10,17 @@
     display: block;
     text-align: center;
 }
+
+.logo {
+    width: 35%;
+    a {
+        display: block;
+        img {
+            display: block;
+            width: 90%;
+            &:hover {
+                transform: scale(2);
+            }
+        }
+    }
+}

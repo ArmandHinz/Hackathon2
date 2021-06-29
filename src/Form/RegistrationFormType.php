@@ -41,6 +41,7 @@ class RegistrationFormType extends AbstractType
                     'required' => true,
                 )
             )
+
             ->add('firstname', TextType::class, [
                 'attr' => [
                     'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
@@ -61,6 +62,7 @@ class RegistrationFormType extends AbstractType
                     'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
                 ]
             ])
+
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [

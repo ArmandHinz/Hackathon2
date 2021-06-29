@@ -36,6 +36,7 @@ class MessageChanelController extends AbstractController
         }
                 
         return $this->render('message_chanel/index.html.twig', [
+            'chanel' => $chanel,
             'messages' => $messageChanel,
             'form' => $form->createView(),
         ]);
