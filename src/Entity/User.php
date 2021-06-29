@@ -89,16 +89,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $chanels;
 
-<<<<<<< HEAD
-=======
     /**
      * @ORM\OneToMany(targetEntity=MessageChanel::class, mappedBy="user")
      */
     private $messageChanels;
 
-    
 
->>>>>>> d489d7620ede760c23789a80d2d8e8fccdb101db
+
+
 
     public function __construct()
     {
