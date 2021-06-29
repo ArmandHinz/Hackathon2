@@ -14,8 +14,16 @@ class TopicType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('color', ColorType::class)
+            ->add('name', TextType::class, [
+                'attr' => [
+                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
+                ]
+            ])
+            ->add('color', ColorType::class, [
+                'attr' => [
+                    'class' => 'border rounded w-full ',
+                ]
+            ])
         ;
     }
 
