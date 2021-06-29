@@ -367,6 +367,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+
      * @return Collection|Chanel[]
      */
     public function getChanels(): Collection
@@ -406,5 +407,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->techno = $techno;
 
         return $this;
+
+     * Transform to string
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->getId();
+
     }
 }

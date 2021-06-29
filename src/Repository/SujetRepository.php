@@ -19,6 +19,17 @@ class SujetRepository extends ServiceEntityRepository
         parent::__construct($registry, Sujet::class);
     }
 
+    public function findLikeName(string $name): array
+    {
+        $queryBuilder = $this->createQueryBuilder('s')
+            ->join('s.topic', 't')
+            ->Where('t.name LIKE :name')
+            ->setParameter('name', '%' . $name . '%')
+            ->orderBy('t.name', 'ASC')
+            ->getQuery();
+
+        return $queryBuilder->getResult();
+    }
     // /**
     //  * @return Sujet[] Returns an array of Sujet objects
     //  */
