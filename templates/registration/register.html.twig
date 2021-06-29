@@ -17,9 +17,13 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+        
         {{ form_row(registrationForm.roles) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
+
         <button type="submit" class="btn">Register</button>
+        <a href="{{ path("app_login")}}">currently a member ?</a>
+
     {{ form_end(registrationForm) }}
 {% endblock %}

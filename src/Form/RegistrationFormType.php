@@ -45,13 +45,6 @@ class RegistrationFormType extends AbstractType
             ->add('lastname', TextType::class)
             ->add('description', TextareaType::class)
             ->add('email',EmailType::class)
-            ->add('technos', EntityType::class,[
-                'mapped' => false,
-                'class' => Techno::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,
-            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
