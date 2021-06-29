@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Sujet;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\Topic;
@@ -20,25 +21,25 @@ class SujetFormType extends AbstractType
                 TextType::class,
                 [
                     'attr' => [
-                        'class' => 'uk-input',
+                        'class' => 'appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4',
                     ]
                 ]
             )
             ->add(
                 'shortDescription',
-                TextType::class,
+                TextareaType::class,
                 [
                     'attr' => [
-                        'class' => 'uk-textarea',
+                        'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
                     ]
                 ]
             )
             ->add(
                 'longDescription',
-                TextType::class,
+                TextareaType::class,
                 [
                     'attr' => [
-                        'class' => 'uk-textarea',
+                        'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
                     ]
                 ]
             )
@@ -49,7 +50,7 @@ class SujetFormType extends AbstractType
                     'class' => Topic::class,
                     'choice_label' => 'name',
                     'attr' => [
-                        'class' => 'uk-select',
+                        'class' => 'uk-select rounded',
                     ]
                 ]
             );

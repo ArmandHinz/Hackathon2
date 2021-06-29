@@ -2,30 +2,33 @@
 
 namespace App\Form;
 
-use App\Entity\Chanel;
-use App\Entity\Projet;
+use App\Entity\Avatar;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProjetType extends AbstractType
+class AvatareType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class,  [
+            ->add('url', TextType::class, [
                 'attr' => [
-                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
+                    'class' => '.uk-input'
                 ]
             ])
-            ->add('description', TextareaType::class,  [
+            ->add('name', TextType::class, [
                 'attr' => [
-                    'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
+                    'class' => 'uk-input'
                 ]
+            ])
+            ->add('user', HiddenType::class, [
+                'attr' => [
+                    "class" => "uk-input"
+                ]
+                
             ])
         ;
     }
@@ -33,7 +36,7 @@ class ProjetType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Projet::class,
+            'data_class' => Avatar::class,
         ]);
     }
 }

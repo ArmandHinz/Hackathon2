@@ -6,13 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Sujet;
 use App\Entity\MessageSujet;
 use App\Form\MessageSujetType;
 
 
 /**
- * @Route("/sujet/comment", name="comment_sujet_")
+ * @Route("/sujet_comment", name="comment_sujet_")
  */
 class CommentSujetController extends AbstractController
 {
