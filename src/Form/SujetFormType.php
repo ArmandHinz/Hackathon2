@@ -50,7 +50,7 @@ class SujetFormType extends AbstractType
                     'class' => Topic::class,
                     'choice_label' => 'name',
                     'attr' => [
-                        'class' => 'uk-select',
+                        'class' => 'uk-select rounded',
                     ]
                 ]
             );
