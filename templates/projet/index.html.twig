@@ -15,7 +15,7 @@
                         <div class="mt-6 " >
                             <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md min-h-full">
                             <!-- title -->
-                                <div class="mt-2 text-center"><a href="{{ path('projet_show', {'id': projet.id}) }}" class="text-2xl font-bold text-gray-700 hover:underline ">{{ projet.name }}</a>
+                                <div class="mt-2 text-center"><span class="text-2xl font-bold text-gray-700">{{ projet.name }}</span>
                                     <p class="mt-2 text-gray-600">
                                         {{ projet.description }}
                                     </p>
@@ -27,15 +27,15 @@
                                         {% for chanel in projet.chanel %}
                                             <div>
                                                 {% if chanel.isValidate == 1 %}
-                                                    <a href="{{ path('message_chanel', {'id': chanel.id}) }}">{{ chanel.techno.name }} :  Freelance trouvé!</a>
+                                                    <a href="{{ path('message_chanel', {'id': chanel.id}) }}" class="underl">{{ chanel.techno.name }} :  Freelance trouvé!</a>
                                                 {% else %}
                                                     <span style="background-color:#32c5d4;border-radius:5px;font-weight:bold;color:;">
                                                         {{ chanel.techno.name }}
                                                     </span>
                                                     {% if app.user.roles.0 == "ROLE_FREELANCE" %}
-                                                        <a class="px-2 py-1 font-bold text-gray-100 rounded" style="background-color:green" href="{{ path('chanel_add_user', {'id': chanel.id}) }}">Rejoindre</a>
+                                                        <a class="px-2 py-1 font-bold text-gray-100 rounded underl" style="background-color:green" href="{{ path('chanel_add_user', {'id': chanel.id}) }}">Rejoindre</a>
                                                     {% endif %}
-                                                    <a href="{{ path('projet_show', {'id': projet.id}) }}" class="text-green-500">Participer au projet</a>
+                                                    <a href="{{ path('projet_show', {'id': projet.id}) }}" class="text-green-500 underl">Participer au projet</a>
                                                 {% endif %}
                                             </div>
                                         {% endfor %}
@@ -43,8 +43,8 @@
                                     <div class="grid grid-cols-1">
                                         {% if app.user.id == projet.user.id %}
                                             <div class="container mx-auto px-4">
-                                                    <a href="{{ path('projet_edit', {'id': projet.id}) }}" class="uk-button uk-button-text uk-align-right">editer</a>
-                                                    <a href="{{ path('chanel_add', {'projet': projet.id}) }}" class="uk-button uk-button-text uk-align-right">Ajouter chanel</a>
+                                                    <a href="{{ path('projet_edit', {'id': projet.id}) }}" class="underl">editer</a>
+                                                    <a href="{{ path('chanel_add', {'projet': projet.id}) }}" class="underl">Ajouter chanel</a>
                                             </div>
                                         {% endif %}
                                     </div>
