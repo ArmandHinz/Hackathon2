@@ -87,3 +87,64 @@
 .height-max {
     min-height: 80vh;
 }
+
+.window {
+    min-height: 100vh;
+}
+
+
+/* PROFIL */
+
+.vertText {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    position: absolute;
+    left: 10px;
+    top: 50px;
+    font-size: 4rem;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 4px #095228;
+}
+
+.profilContainer {
+    padding: 50px 0;
+    background-color: #ECFCF4;
+    position: relative;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem auto;
+    border-radius: 5px;
+    background: #35bf73;
+    color: #ffff;
+    width: 150px;
+}
+
+.btnContainer a {
+    padding: 5px;
+    text-align: center;
+}
+
+.bande {
+    position: absolute;
+    top: 0;
+    height: 80px;
+    width: 100vw;
+    background-color: #35bf73;
+    display: flex;
+    align-items: flex-end;
+}
+
+.bande img {
+    max-height: 100%;
+    display: block;
+}
+
+.bande p {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffff;
+}

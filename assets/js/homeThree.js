@@ -21,8 +21,8 @@ function init() {
 
     //LIGHT
     dirLight = new THREE.DirectionalLight( 0xffffff );
-    light = new THREE.PointLight(0xffffff, .5, 1000, 2);
-    dirLight.position.set( 0, 3, 1 );
+    light = new THREE.PointLight(0xffffff, .8, 1000, 2);
+    dirLight.position.set( .5, 2, 1 );
     scene.add( dirLight,  light  );
 
 
