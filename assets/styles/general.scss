@@ -15,3 +15,62 @@ nav.big {
     display: flex;
     justify-content: center;
 }
+
+.sujetTitle {
+    font-size: 40px;
+    text-align: center;
+}
+
+.underl {
+    position: relative;
+}
+
+.underl::after {
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    transition: all .2s linear;
+    background-color: #35bf73;
+}
+
+.underl:hover::after {
+    width: 100%;
+}
+
+.upText.button {
+    padding: 10px;
+    position: relative;
+}
+
+.upText.button::before,
+.upText.button::after {
+    content: "";
+    position: absolute;
+    left: 40%;
+    width: 20%;
+    height: 2px;
+    background-color: #ffff;
+    transition: all .2s ease-in;
+}
+
+.upText.button::before {
+    top: 0;
+    transform-origin: right;
+}
+
+.upText.button::after {
+    bottom: 0;
+    transform-origin: left;
+}
+
+.upText.button:hover::before,
+.upText.button:hover::after {
+    transform: scaleX(0);
+}
+
+.upText.button .toUp {
+    font-size: 1.5rem;
+}
