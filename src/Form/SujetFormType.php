@@ -11,6 +11,7 @@ use App\Entity\Topic;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+
 class SujetFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -27,7 +28,7 @@ class SujetFormType extends AbstractType
             )
             ->add(
                 'shortDescription',
-                TextareaType::class,
+                TextType::class,
                 [
                     'attr' => [
                         'class' => 'border rounded w-full py-2 px-3 text-grey-darker',
