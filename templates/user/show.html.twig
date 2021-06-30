@@ -7,27 +7,27 @@
 <div class="uk-background-default ">
     <h1 class="uk-flex uk-flex-center uk-align-center"> Hello {{ app.user.firstname }} </h1>
     
-    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Name : </h4> 
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title uk-text-lead uk-text-bold uk-text-muted">Name : </h4> 
         <div class="uk-flex uk-flex-center uk-align-center">
             {{ app.user.firstname }}<br>
         </div>
  
-    <h4 class="uk-flex uk-flex-center uk-align-center text-title">LastName : </h4> 
-        <div class="uk-flex uk-flex-center uk-align-center">
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title uk-text-lead uk-text-bold uk-text-muted">LastName : </h4> 
+        <div class="uk-flex uk-flex-center uk-align-center ">
             {{ app.user.lastname }}<br>
         </div>
 
-    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Email : </h4> 
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title uk-text-lead uk-text-bold uk-text-muted">Email : </h4> 
         <div class="uk-flex uk-flex-center uk-align-center">
             {{ app.user.email }}<br>
         </div>
 
-    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Description : </h4> 
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title uk-text-lead uk-text-bold uk-text-muted">Description : </h4> 
         <div class="uk-flex uk-flex-center uk-align-center">
             {{ app.user.description }}<br>
         </div>
 
-    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Techno : </h4> 
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title uk-text-lead uk-text-bold uk-text-muted">Techno : </h4> 
         <div class="uk-flex uk-flex-center uk-align-center">
             {{ app.user.techno }}
         </div>
@@ -39,7 +39,7 @@
             {% endfor %}
         {% endif %}
 
-    <h4 class="uk-flex uk-flex-center uk-align-center text-title">Avatar : </h4>
+    <h4 class="uk-flex uk-flex-center uk-align-center text-title uk-text-lead uk-text-bold uk-text-muted">Avatar : </h4>
         {% if app.user.avatar is null %}
             <p class="uk-flex uk-flex-center uk-align-center">You don't have avatar</p>
         {% else %}

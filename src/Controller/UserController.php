@@ -45,15 +45,13 @@ class UserController extends AbstractController
     public function show(User $user,AvatarRepository $avatarRepository): Response
     {
         $avatars = $user->getAvatar();
-        $technos = $user->getTechno();
 
         $avatarRepository;
         return $this->render(
             'user/show.html.twig',
             [
                 'user' => $user,
-                'avatars' => $avatars,
-                'technos' => $technos
+                'avatars' => $avatars
             ]
         );
     }
