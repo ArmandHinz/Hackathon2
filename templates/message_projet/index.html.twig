@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MessageChanelController!{% endblock %}
+{% block title %}Hello MessageProjetController!{% endblock %}
 
 {% block body %}
 {{ include('nav.html.twig')}}
@@ -9,11 +9,11 @@
 <div class="h-screen shadow-lg rounded-lg">
         <!-- headaer -->
     <div class="px-5 py-5 flex justify-between items-center bg-white border-b-2">
-            <div class="font-semibold text-2xl">{{ chanel.projet.name }}</div>           
+            <div class="font-semibold text-2xl">{{ projet.name }}</div>           
             <div class="font-semibold h-full pr-5 border-r-2 no-underline uppercase">
-            <a class="text-gray-500" href="{{ path('message_projet', {'id': chanel.projet.id}) }}">General</a>
+            <a class="text-gray-500" href="#">General</a>
             </div>
-            {% for chanel in chanel.projet.chanel %}
+            {% for chanel in projet.chanel %}
             <div class="font-semibold h-full pr-5 border-r-2 no-underline uppercase">
             <a class="text-gray-500" href="{{ path('message_chanel', {'id': chanel.id}) }}">{{ chanel.techno.name }}</a>
             </div>
@@ -36,7 +36,7 @@
             />
           </div>
           <div class="w-full">
-            <div class="text-lg font-semibold"><a href="{{ path('message_projet', {'id': chanel.projet.id}) }}" class="text-gray-500">Discussion</a></div>
+            <div class="text-lg font-semibold"><a href="{{ path('message_projet', {'id': projet.id}) }}" class="text-gray-500">Discussion</a></div>
           </div>
         </div>
         <div class="flex flex-row py-4 px-2 items-center border-b-2">
@@ -49,7 +49,7 @@
           </div>
           <div class="w-full">
             <div class="text-lg font-semibold no-underline">
-            <a href="{{ path('message_chanel', {'id': chanel.id}) }}" class="text-gray-500">Drive</a></div>
+            <a href="#" class="text-gray-500">Drive</a></div>
           </div>
         </div>
         <!-- end user list -->
@@ -79,7 +79,7 @@
         {% endfor %}
         </div>
         <div class="py-5">
-         {{ include('message_chanel/_form.html.twig') }}
+         {{ include('message_projet/_form.html.twig') }}
         </div>
       </div>
       <!-- end message -->
