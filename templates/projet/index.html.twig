@@ -24,7 +24,7 @@
                                                 {% for chanel in projet.chanel %}
                                                     <div>
                                                         {% if chanel.isValidate == 1 %}
-                                                            {{ chanel.techno.name }} :  Freelance trouvé!
+                                                            <a href="{{ path('message_chanel', {'id': chanel.id}) }}">{{ chanel.techno.name }} :  Freelance trouvé!</a>
                                                         {% else %}
                                                             {{ chanel.techno.name }}
                                                             {% if app.user.roles.0 == "ROLE_FREELANCE" %}
