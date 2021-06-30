@@ -30,7 +30,7 @@
                                                             {% if app.user.roles.0 == "ROLE_FREELANCE" %}
                                                                 <a class="px-2 py-1 font-bold text-gray-100 rounded" style="background-color: green " href="{{ path('chanel_add_user', {'id': chanel.id}) }}">Rejoindre</a>
                                                             {% endif %}
-                                                            <a href="{{ path('projet_show', {'id': projet.id}) }}" class="uk-button uk-button-text uk-align-right">Participer au projet</a>
+                                                            <a href="{{ path('chanel_add_user', {'id': chanel.id}) }}" class="uk-button uk-button-text uk-align-right">Participer au projet</a>
                                                         {% endif %}
                                                     </div>
                                                 {% endfor %}
