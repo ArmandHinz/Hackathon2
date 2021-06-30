@@ -43,9 +43,9 @@
                             </div>
                             <hr/>
                             <div class="flex items-center justify-between mt-4">
-                                <a href="{{ path("sujet_show", {id: sujet.id}) }}" class="uk-button uk-button-text uk-align-right">Discuter</a>
+                                <a href="{{ path("sujet_show", {id: sujet.id}) }}" > <span class="font-light text-gray-700 hover:underline">DISCUTER</span></a>
                                 {% if app.user.id == sujet.user.id %}
-                                    <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}" class="uk-button uk-button-text uk-align-right">editer</a>
+                                    <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}"> <span class="font-light text-gray-700 hover:underline">EDITER</span></a>
                                     {{ include('sujet/_delete_form.html.twig') }}
                                 {% endif %}
 
