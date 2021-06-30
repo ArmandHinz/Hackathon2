@@ -4,16 +4,16 @@
 
 {% block body %}
     {{ include('nav.html.twig') }}
-    <div class="px-6 py-4 bg-green-50 shadow">
-        <h1 class="uk-text-center ">Envie de discuter avec les freelancer de la communauté Fiverr?</h1>
+    <div class="px-6 py-4 bg-green-50 shadow sujet">
+        <h1 class="sujetTitle ">Envie de discuter avec les freelancer de la communauté Fiverr?</h1>
     </div>
 
     <div class="overflow-x-hidden bg-green-50 height-max">
         <div class="px-6 py-8 ">
-            <div class="container flex justify-between mx-auto">
+            <div class="container flex justify-between mx-auto parentContainer">
                 <div class="w-full lg:w-8/12">
                     <div class="flex items-center justify-between">
-                        <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Post</h1>
+                        <h1 class="text-xl font-bold text-gray-700 md:text-2xl opac">Post</h1>
                         <div>
                             <div class="uk-flex uk-flex-center">
                                 {{ form_start(form) }}
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     {% for sujet in sujets %}
-                    <div class="mt-6">
+                    <div class="mt-6 containerSujet">
                         <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
                             <div class="flex items-center justify-between"><span class="font-light text-gray-600">
                                     {{ sujet.date|date('d-m-Y') }}
@@ -43,9 +43,11 @@
                             </div>
                             <hr/>
                             <div class="flex items-center justify-between mt-4">
-                                <a href="{{ path("sujet_show", {id: sujet.id}) }}" > <span class="font-light text-gray-700 hover:underline">DISCUTER</span></a>
+
+                                <a href="{{ path("sujet_show", {id: sujet.id}) }}" class="underl" >DISCUTER</a>
                                 {% if app.user.id == sujet.user.id %}
-                                    <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}"> <span class="font-light text-gray-700 hover:underline">EDITER</span></a>
+                                    <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}" class="underl">EDITER</a>
+
                                     {{ include('sujet/_delete_form.html.twig') }}
                                 {% endif %}
 
@@ -80,13 +82,13 @@
                 </div>
 
                     <div class="w-1/5">
-                        <h1 class="text-xl font-bold text-gray-700">Links</h1>
-                        <div class="flex flex-col max-w-sm px-4 py-6  bg-white rounded-lg shadow-md">
+                        <h1 class="text-xl font-bold text-gray-700 opac">Links</h1>
+                        <div class="flex flex-col max-w-sm px-4 py-6  bg-white rounded-lg shadow-md rightCome">
                             <ul>
-                                <li><a href="{{ path('sujet_new') }}" class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
+                                <li><a href="{{ path('sujet_new') }}" class="underl mx-1 font-bold text-gray-700 hover:text-gray-600 underl">-
                                         Create subject</a></li>
                                 <li class="mt-2">
-                                    <a href="{{ path('topic_new') }}" class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
+                                    <a href="{{ path('topic_new') }}" class="underl mx-1 font-bold text-gray-700 hover:text-gray-600 underl">-
                                         Create topic
                                     </a>
                                 </li>

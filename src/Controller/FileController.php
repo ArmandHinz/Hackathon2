@@ -71,7 +71,7 @@ class FileController extends AbstractController
             // ... persist the $file variable or any other work
             $manager = $this->getDoctrine()->getManager();
 
-            $exists = $this->getDoctrine()->getRepository(File::class)->findOneBy(['name' => $safeFilename]);
+            $exists = $this->getDoctrine()->getRepository(File::class)->findOneBy(['name' => $file->getName()]);
 
             if(empty($exists)){
                 $manager->persist($file);
@@ -89,9 +89,9 @@ class FileController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/{projet}", name="delete", defaults={"projet": null})
+     * @Route("/{id}/{chanel}/{projet}", name="delete", defaults={"projet": null, "chanel": null})
      */
-    public function delete(Request $request, File $file, int $projet): Response
+    public function delete(Request $request, File $file,  $chanel,  $projet): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($file);
@@ -100,10 +100,16 @@ class FileController extends AbstractController
         $fileSystem = new Filesystem();
         $fileSystem->remove('public/assets/uploads/' . $file->getSrc());
 
-        if($projet !== null){
-            return $this->redirectToRoute('projet_show', ['id' => $projet]);
+        if($chanel !== null){
+            return $this->redirectToRoute('message_chanel', ['id' => $chanel]);
 
         }
+
+        if($projet !== null){
+            return $this->redirectToRoute('message_projet', ['id' => $projet]);
+
+        }
+
         return $this->redirectToRoute('file_index');
     }
 
