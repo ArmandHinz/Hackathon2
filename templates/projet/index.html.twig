@@ -3,38 +3,58 @@
 {% block title %}Index Projet{% endblock %}
 
 {% block body %}
-    <div class="grid grid-flow-col grid-cols-3 gap-4 ml-lg-5">
-        {% for projet in projets %}
-            <div class="mt-6">
-                <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
-                    <div class="mt-2"><a href="{{ path('projet_show', {'id': projet.id}) }}" class="text-2xl font-bold text-gray-700 hover:underline">{{ projet.name }}</a>
-                        <p class="mt-2 text-gray-600">
-                            {{ projet.description }}
-                        </p>
-                    </div>
-                    <hr/>
-                    <div class="flex items-center justify-between mt-4">
-                        {% if app.user.id == projet.user.id %}
-                            <a href="{{ path('projet_edit', {'id': projet.id}) }}" class="uk-button uk-button-text uk-align-right">editer</a>
-                            <a href="{{ path('chanel_add', {'projet': projet.id}) }}" class="uk-button uk-button-text uk-align-right">Ajouter chanel</a>
-                        {% endif %}
-                        {% for chanel in projet.chanel %}
-                            <li class="">
-                            {% if chanel.isValidate == 1 %}
-                                {{ chanel.techno.name }} <p>Freelance trouvé!</p>
-                            {% else %}
-                                {{ chanel.techno.name }}
-                                    {% if app.user.roles.0 == "ROLE_FREELANCE" %}
-                                        <a class="px-2 py-1 font-bold text-gray-100 rounded" style="background-color: green " href="{{ path('chanel_add_user', {'id': chanel.id}) }}">Rejoindre</a>
-                                    {% endif %}
-                            </li>
-                            {% endif %}
-                            <a href="{{ path('projet_show', {'id': projet.id}) }}" class="uk-button uk-button-text uk-align-right">Participer au projet</a>
-                        {% endfor %}
-                    </div>
+    {{ include('nav.html.twig') }}
+    <div class="overflow-x-hidden bg-green-50 height-max">
+        <div class="text-center mt-6">
+            <a href="{{ path('projet_new') }} " class="text-3xl bg-white rounded-lg shadow-md p-3 text-black">New projet</a>
+        </div>
+            <div class="container flex justify-between mx-auto">
+                <div class="w-full lg:w-8/12">
+
+                        <div class="grid  grid-cols-3 gap-4 ml-lg-5 mb-5 ">
+                            {% for projet in projets %}
+                                <div class="mt-6 min-h-full " >
+                                    <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md min-h-full max-h-44 mb-5">
+                                        <div class="mt-2"><a href="{{ path('projet_show', {'id': projet.id}) }}" class="text-2xl font-bold text-gray-700 hover:underline">{{ projet.name }}</a>
+                                            <p class="mt-2 text-gray-600">
+                                                {{ projet.description }}
+                                            </p>
+                                        </div>
+                                        <hr/>
+                                        <div class="mt-4 flex content-around">
+                                            <div class="grid grid-cols-1">
+                                                {% for chanel in projet.chanel %}
+                                                    <div>
+                                                        {% if chanel.isValidate == 1 %}
+                                                            {{ chanel.techno.name }} :  Freelance trouvé!
+                                                        {% else %}
+                                                            {{ chanel.techno.name }}
+                                                            {% if app.user.roles.0 == "ROLE_FREELANCE" %}
+                                                                <a class="px-2 py-1 font-bold text-gray-100 rounded" style="background-color: green " href="{{ path('chanel_add_user', {'id': chanel.id}) }}">Rejoindre</a>
+                                                            {% endif %}
+                                                            <a href="{{ path('projet_show', {'id': projet.id}) }}" class="uk-button uk-button-text uk-align-right">Participer au projet</a>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="grid grid-cols-1">
+                                                {% if app.user.id == projet.user.id %}
+                                                    <div>
+                                                        <a href="{{ path('projet_edit', {'id': projet.id}) }}" class="uk-button uk-button-text uk-align-right">editer</a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="{{ path('chanel_add', {'projet': projet.id}) }}" class="uk-button uk-button-text uk-align-right">Ajouter chanel</a>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                 </div>
             </div>
-        {% endfor %}
     </div>
-    <a href="{{ path('projet_new') }}">New projet</a>
+
+
 {% endblock %}
