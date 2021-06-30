@@ -3,6 +3,7 @@
 {% block title %}Index Projet{% endblock %}
 
 {% block body %}
+    {{ include('nav.html.twig') }}
 <div class="text-center mt-6 ">
     <a href="{{ path('projet_new') }} " class="text-3xl bg-white rounded-lg shadow-md p-3 text-black">New projet</a>
     </div>
