@@ -3,7 +3,27 @@
 {% block title %}New projet{% endblock %}
 
 {% block body %}
+        {{ include('nav.html.twig') }}
+<div class="bg-green-100 p-5">
     {{ include('projet/_form.html.twig') }}
 
-    <a href="{{ path('projet_index') }}">back to list</a>
+    <a href="{{ path('projet_index') }}"><div class="upText button">
+                    <div class="toUp">b</div>
+                    <div class="toUp">a</div>
+                    <div class="toUp">c</div>
+                    <div class="toUp">k</div>
+                    <div class="toUp">&nbsp;</div>
+                    <div class="toUp">t</div>
+                    <div class="toUp">o</div>
+                    <div class="toUp">&nbsp;</div>
+                    <div class="toUp">p</div>
+                    <div class="toUp">r</div>
+                    <div class="toUp">o</div>
+                    <div class="toUp">j</div>
+                    <div class="toUp">e</div>
+                    <div class="toUp">c</div>
+                    <div class="toUp">t</div>
+            </div>
+    </a>
+        </div>
 {% endblock %}

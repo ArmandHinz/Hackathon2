@@ -3,9 +3,11 @@
 {% block title %}New chanel{% endblock %}
 
 {% block body %}
-    <h1>Create new chanel</h1>
-
+    {{ include('nav.html.twig') }}
+    <div class="bg-green-100 p-5">
     {{ include('chanel/_form.html.twig') }}
+        <a href="{{ path('projet_show', {'id': projet.id}) }}">back to projet</a>
 
-    <a href="{{ path('projet_show', {'id': projet.id}) }}">back to projet</a>
+    </div>
+
 {% endblock %}

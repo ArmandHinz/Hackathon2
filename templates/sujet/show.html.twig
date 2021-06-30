@@ -3,7 +3,10 @@
 {% block title %}{{ sujet.name }}{% endblock %}
 
 {% block body %}
-<div class="overflow-x-hidden bg-green-50 window">
+    {{ include('nav.html.twig') }}
+
+<div class="overflow-x-hidden bg-green-50 pb-20">
+
     <div class="text-center">
         <div class="container flex justify-between mx-auto">
             <div class="w-full ">

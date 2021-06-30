@@ -1,4 +1,7 @@
 {% extends "base.html.twig" %}
 {% block body %}
-{% include("sujet/_form.html.twig") %}
+    {{ include('nav.html.twig') }}
+<div class="bg-green-100 p-5">
+    {% include("sujet/_form.html.twig") %}
+</div>
 {% endblock %}
