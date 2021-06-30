@@ -9,8 +9,6 @@
             <a href="{{ path('projet_new') }} " class="text-3xl bg-white rounded-lg shadow-md p-3 text-black">New projet</a>
         </div>
             <div class="container flex justify-between mx-auto">
-                <div class="w-full lg:w-8/12">
-
                         <div class="grid  grid-cols-3 gap-4 ml-lg-5 mb-5 ">
                             {% for projet in projets %}
                                 <div class="mt-6 min-h-full " >
@@ -26,7 +24,7 @@
                                                 {% for chanel in projet.chanel %}
                                                     <div>
                                                         {% if chanel.isValidate == 1 %}
-                                                            {{ chanel.techno.name }} :  Freelance trouvé!
+                                                            <a href="{{ path('message_chanel', {'id': chanel.id}) }}">{{ chanel.techno.name }} :  Freelance trouvé!</a>
                                                         {% else %}
                                                             {{ chanel.techno.name }}
                                                             {% if app.user.roles.0 == "ROLE_FREELANCE" %}
@@ -53,7 +51,6 @@
                             {% endfor %}
                         </div>
                 </div>
-            </div>
     </div>
 
 

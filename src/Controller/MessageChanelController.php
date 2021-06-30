@@ -19,7 +19,7 @@ class MessageChanelController extends AbstractController
     public function index(Request $request, Chanel $chanel, MessageChanelRepository  $messageChanelRepository): Response
     {
         $newMessage = new messageChanel;
-        $form = $this->createForm(messageChanelType::class, $newMessage);
+        $form = $this->createForm(MessageChanelType::class, $newMessage);
         $form->handleRequest($request);
         $IdChanel = $chanel->getId();
         $messageChanel = $messageChanelRepository->findBy(['chanel' => $IdChanel]);
