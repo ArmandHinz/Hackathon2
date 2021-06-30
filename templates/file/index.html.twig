@@ -1,7 +1,7 @@
 
 {% block body %}
     <!-- list -->
-    <div class="w-2/6">
+
         <div class="flex justify-center p-4 px-3 py-10">
             <div class="w-full max-w-md">
                 <div class="bg-white shadow-md rounded-lg px-3 py-2 mb-4">
@@ -31,7 +31,7 @@
                                     {{ file.type }}
                                 </div>
                                 <div class="text-sm font-normal tracking-wide ml-4">
-                                    <a href="{{ path('file_delete', {id: file.id, projet:projet.id} ) }}">Delete</a>
+                                    <a href="{{ path('file_delete', {id: file.id, chanel: chanel.id} ) }}">Delete</a>
                                 </div>
                             </div>
                         {% else %}
@@ -40,10 +40,10 @@
 
                     </div>
                     <div class="block bg-gray-200 text-sm text-right py-2 px-3 -mx-3 -mb-2 rounded-b-lg">
-                        {{ form_start(form) }}
-                        {{ form_widget(form.file, {'attr': {'class': 'font-light'}}) }}
+                        {{ form_start(formFile) }}
+                        {{ form_widget(formFile.file, {'attr': {'class': 'font-light'}}) }}
                         <button class="mt-2 px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">{{ button_label|default('Upload') }}</button>
-                        {{ form_end(form) }}
+                        {{ form_end(formFile) }}
                         {% for category, messages in app.flashes %}
                             {% for message in messages %}
                                 <div class="text-red-700">
@@ -55,6 +55,6 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
 {% endblock %}
