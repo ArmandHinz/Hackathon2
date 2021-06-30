@@ -6,7 +6,7 @@
     <h2>{{ projet.name }}</h2>
         <p>{{ projet.description }}</p>
         <a href="{{ path('chanel_add', {'projet': projet.id}) }}">add channel</a>
-    <h2>Chanels</h2>
+    <h2>Channels</h2>
         <ul>
         {% for chanel in projet.chanel %}
             <li>
