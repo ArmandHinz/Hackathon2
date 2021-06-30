@@ -3,6 +3,8 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+    {{ include('nav.html.twig') }}
+<div class="bg-green-100 p-5">
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
@@ -40,4 +42,6 @@
 
     {{ form_end(registrationForm) }}
 
+
+</div>
 {% endblock %}
