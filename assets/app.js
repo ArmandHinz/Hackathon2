@@ -13,4 +13,6 @@ import './bootstrap';
 
 import './js/homeThree';
 
+import './js/gsap';
+
 
