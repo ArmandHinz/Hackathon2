@@ -6,6 +6,7 @@
     {{ include('nav.html.twig') }}
 
 <div class="overflow-x-hidden bg-green-50 pb-20">
+
     <div class="text-center">
         <div class="container flex justify-between mx-auto">
             <div class="w-full ">
@@ -36,7 +37,8 @@
                 <div class="w-full ">
                     <div class="mt-6">
                         <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
-                            <div class="flex items-center justify-between"><span class="font-light text-gray-600">
+                            <div class="flex items-center justify-between">
+                                <span class="font-light text-gray-600">
                                     {{ message.date|date('d-m-Y H:m') }}
                                 </span>
                             </div>
@@ -50,7 +52,8 @@
                             {% if app.user.id == message.user.id %}
                                 <div class="flex items-center justify-between mt-4">
                                     <a href="{{ path('comment_sujet_edit', {id: message.id}) }}"><span class="font-light text-gray-700 underl">EDITER</span></a>
-                                    <a href="{{ path('comment_sujet_delete', {id: message.id}) }}"> <span class="font-light text-gray-700 underl">SUPPRIMER</span></a>
+                                    <a href="{{ path('comment_sujet_delete', {id: message.id}) }}"> <span class="font-light text-red-500 hover:underline">SUPPRIMER</span></a>
+
                                 </div>
                             {% endif %}
                         </div>
@@ -75,7 +78,9 @@
                             <hr/>
                             {% if app.user.id == message.user.id %}
                                 <div class="flex items-center justify-between mt-4 ">
+
                                     <a href="{{ path('comment_sujet_edit', {id: message.id}) }}" class="underl">MODIFIER</a>
+
                                     {{ include('comment_sujet/_delete_form.html.twig') }}
                                 </div>
                             {% endif %}

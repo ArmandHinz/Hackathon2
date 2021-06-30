@@ -4,54 +4,71 @@
 
 {% block body %}
 {{ include('nav.html.twig') }}
-<div class="uk-background-default ">
-    <h1 class="text-center 3xl"> Hello {{ app.user.firstname }} </h1>
+<div class="profilContainer parentContainer">
+    <h1 class="vertText opac">Profil</h1>
     
-    <h4 class="text-center text-3xl text-gray-500">Name : </h4> 
-        <div class="text-center">
-            {{ app.user.firstname }}<br>
-        </div>
- 
-    <h4 class="text-center text-3xl text-gray-500">LastName : </h4> 
-        <div class="text-center ">
-            {{ app.user.lastname }}<br>
-        </div>
 
-    <h4 class="text-center text-3xl text-gray-500">Email : </h4> 
-        <div class="text-center">
-            {{ app.user.email }}<br>
-        </div>
-
-    <h4 class="text-center text-3xl text-gray-500">Description : </h4> 
-        <div class="text-center">
-            {{ app.user.description }}<br>
-        </div>
-
-    <h4 class="text-center text-3xl text-gray-500">Techno : </h4> 
-        <div class="text-center">
-            {{ app.user.techno }}
-        </div>
-        {% if app.user.techno is null %}
-            <p class="text-center"> You don't have techno</p>  
-        {% else %}
-            {% for techno in technos %}
-                {{ app.user.techno }}
-            {% endfor %}
-        {% endif %}
-
-    <h4 class="text-center text-3xl text-gray-500">Avatar : </h4>
-        {% if app.user.avatar is null %}
-            <p class="text-center">You don't have avatar</p>
-        {% else %}
-            <div>
-                <img class="uk-flex uk-flex-center uk-align-center img_test" src="{{ app.user.avatar.url }}" alt="avatar"/>
+    <div class="mt-4 containerSujet">
+        <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
+            <h4 class="">Avatar : </h4>
+            {% if app.user.avatar is null %}
+                <p class="">You don't have avatar</p>
+            {% else %}
+                <div>
+                    <img class="" src="{{ app.user.avatar.url }}" alt="avatar"/>
+                </div>
+            {% endif %}
+            <div class="btnContainer max-w-4xl">
+                <a class="  shadow-md" href="{{ path('change_avatar')}}">Change avatar</a>
             </div>
-        {% endif %}
+        </div>
+    </div>
 
+
+
+    <div class="mt-4 containerSujet">
+        <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
+            <h4 class="">Name : </h4> 
+                <div class="">
+                    {{ app.user.firstname }}<br>
+                </div>
         
+            <h4 class="">LastName : </h4> 
+                <div class="">
+                    {{ app.user.lastname }}<br>
+                </div>
 
-    <a class="uk-flex uk-flex-center uk-align-center uk-link-text uk-text-lead"href="{{ path('change_avatar')}}">Change avatar</a>
-    <br>
-    <a class="uk-flex uk-flex-center uk-align-center uk-link-text uk-text-lead"href='{{path('user_edit', {id: user.id}) }}'> Edit </a>
+            <h4 class="">Email : </h4> 
+                <div class="">
+                    {{ app.user.email }}<br>
+                </div>
+        </div>
+    </div>
+
+    <div class="mt-4 containerSujet">
+        <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
+            <h4 class="">Description : </h4> 
+                <div class="">
+                    {{ app.user.description }}<br>
+                </div>
+
+            <h4 class="">Techno : </h4> 
+                <div class="">
+                    {{ app.user.techno }}
+                </div>
+                {% if app.user.techno is null %}
+                    <p class=""> You don't have techno</p>  
+                {% else %}
+                    {% for techno in technos %}
+                        {{ app.user.techno }}
+                    {% endfor %}
+                {% endif %}
+        </div>
+    </div>
+
+    <div class="btnContainer max-w-4xl">
+        <a class=" shadow-md" href='{{path('user_edit', {id: user.id}) }}'> Edit </a>
+    </div>
+
 </div>
 {% endblock %}
