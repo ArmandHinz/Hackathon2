@@ -92,6 +92,6 @@ class ChanelController extends AbstractController
         $chanel->setUser($this->getUser());
         $entityManager->flush();
 
-        return $this->redirectToRoute('message_projet', ['id' => $chanel->getProjet()->getId()]);
+        return $this->redirectToRoute('projet_index');
     }
 }

@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Index Projet{% endblock %}
+{% block title %}Index Project{% endblock %}
 
 {% block body %}
     {{ include('nav.html.twig') }}
     <div class="overflow-x-hidden bg-green-50 height-max ">
         <div class="text-center mt-6">
-            <a href="{{ path('projet_new') }} " class="text-3xl bg-white rounded-lg shadow-md p-3 font-medium text-blac text-purple-700 bg-yellow-50">Nouveau projet</a>
+            <a href="{{ path('projet_new') }} " class="text-3xl bg-white rounded-lg shadow-md p-3 font-medium text-blac text-purple-700 bg-yellow-50">New project</a>
         </div>
         <!-- box -->
             <div class="container flex justify-between mx-auto bg-gray-50 rounded-lg">
@@ -27,7 +27,7 @@
                                         {% for chanel in projet.chanel %}
                                             <div>
                                                 {% if chanel.isValidate == 1 %}
-                                                    <a href="{{ path('message_chanel', {'id': chanel.id}) }}" class="underl">{{ chanel.techno.name }} :  Freelance trouvé!</a>
+                                                    <a href="{{ path('message_chanel', {'id': chanel.id}) }}" class="underl">{{ chanel.techno.name }} :  Freelance find!</a>
                                                 {% else %}
                                                     <span style="background-color:#32c5d4;border-radius:5px;font-weight:bold;color:;">
                                                         {{ chanel.techno.name }}
@@ -35,7 +35,7 @@
                                                     {% if app.user.roles.0 == "ROLE_FREELANCE" %}
                                                         <a class="px-2 py-1 font-bold text-gray-100 rounded underl" style="background-color:green" href="{{ path('chanel_add_user', {'id': chanel.id}) }}">Rejoindre</a>
                                                     {% endif %}
-                                                    <a href="{{ path('projet_show', {'id': projet.id}) }}" class="text-green-500 underl">Participer au projet</a>
+                                                    <a href="{{ path('chanel_add_user', {'id': chanel.id}) }}" class="text-green-500 underl">Participate</a>
                                                 {% endif %}
                                             </div>
                                         {% endfor %}
@@ -43,8 +43,8 @@
                                     <div class="grid grid-cols-1">
                                         {% if app.user.id == projet.user.id %}
                                             <div class="container mx-auto px-4">
-                                                    <a href="{{ path('projet_edit', {'id': projet.id}) }}" class="underl">editer</a>
-                                                    <a href="{{ path('chanel_add', {'projet': projet.id}) }}" class="underl">Ajouter chanel</a>
+                                                    <a href="{{ path('projet_edit', {'id': projet.id}) }}" class="underl">Edit</a>
+                                                    <a href="{{ path('chanel_add', {'projet': projet.id}) }}" class="underl">Add techno</a>
                                             </div>
                                         {% endif %}
                                     </div>
