@@ -5,7 +5,7 @@
 {% block body %}
     {{ include('nav.html.twig') }}
     <div class="px-6 py-4 bg-green-50 shadow sujet">
-        <h1 class="sujetTitle ">Envie de discuter avec les freelancer de la communauté Fiverr?</h1>
+        <h1 class="sujetTitle ">Want to chat with freelancers from the Fiverr community?</h1>
     </div>
 
     <div class="overflow-x-hidden bg-green-50 height-max">
@@ -44,9 +44,9 @@
                             <hr/>
                             <div class="flex items-center justify-between mt-4">
 
-                                <a href="{{ path("sujet_show", {id: sujet.id}) }}" class="underl" >DISCUTER</a>
+                                <a href="{{ path("sujet_show", {id: sujet.id}) }}" class="underl" >DISCUSS</a>
                                 {% if app.user.id == sujet.user.id %}
-                                    <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}" class="underl">EDITER</a>
+                                    <a href="{{ path("sujet_edit", {sujetId: sujet.id}) }}" class="underl">EDIT</a>
 
                                     {{ include('sujet/_delete_form.html.twig') }}
                                 {% endif %}
