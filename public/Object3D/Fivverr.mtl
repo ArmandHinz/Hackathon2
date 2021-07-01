@@ -1,0 +1,580 @@
+newmtl Wood 4_c726bbc5-20b5-46a5-a971-2edb7eed8564
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Wood_024_base_1.jpg
+newmtl red wild_d11ed78d-52da-470d-929d-829a8f96a061
+Kd 0.969 0.424 0.420
+d 1.000
+newmtl black_b7e09796-d70a-4012-b4cb-0da475b84d51
+Kd 0.427 0.875 0.624
+d 1.000
+newmtl Mat_aa6bf92d-888f-4fa7-b373-7ea16068979c
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd 1227_Earth.jpg
+newmtl 03___Default_9031c17e-011e-4fa0-871a-2968ed34cfea
+Kd 0.031 0.031 0.031
+d 1.000
+newmtl 05___Default_0461e38e-d79c-4831-9620-5b6f30c9eb81
+Kd 0.588 0.588 0.588
+d 1.000
+newmtl greenFiverr_b5c47e8b-7f5f-4ba9-8cc3-6e958d3cdb60
+Kd 0.941 0.992 0.965
+d 1.000
+newmtl 04___Default_bf85c329-4978-4ebe-91d6-e1f912d2dca6
+Kd 0.012 0.012 0.012
+d 1.000
+newmtl 02___Default_a0be282c-2ec9-4f3f-a2e0-b67e0cc4ceb7
+Kd 0.090 0.133 0.208
+d 1.000
+newmtl _crayfishdiffuse_8d917cd6-9470-41d2-a4dc-d3115ce0bdba
+Kd 0.788 0.204 0.024
+d 1.000
+newmtl 03___Default 1_b43c928d-60ab-4709-bde1-ec5875280b24
+Kd 0.847 0.847 0.847
+d 1.000
+newmtl Default material_f960051e-8fd7-427e-bdf7-32cfbd07e57b
+Kd 0.243 0.247 0.318
+d 1.000
+newmtl Default material 1_35d1cf91-947a-4dd3-b8e2-689aacc0ee72
+Kd 0.671 0.671 0.671
+d 1.000
+newmtl Default material 2_4181e492-6a5c-409c-a7b6-c92c43e6359e
+Kd 0.976 0.329 0.439
+d 1.000
+newmtl Material 2_5ed86983-16d7-4f64-8214-1c89578db1b5
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl Black vectary_336ac6c2-0cd2-418d-9111-a311afaec77d
+Kd 0.243 0.247 0.318
+d 1.000
+newmtl Grey vectary_01fc6c1d-c1d2-49d4-8669-7908c4a308ce
+Kd 0.671 0.682 0.788
+d 1.000
+newmtl Material 1_f8b87a80-97dd-40b9-af89-7f317d4fbbde
+Kd 0.588 0.588 0.588
+d 1.000
+newmtl lambert3SG_8ecf53b6-ccaa-40e3-8174-0b8d53fff716
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Guitar_Amp_Texture.jpg
+newmtl Material 3_6ec573ff-1a5c-4344-b8d0-06195b356628
+Kd 0.357 0.529 0.427
+d 1.000
+newmtl Material 4_1b6307b2-5578-4381-a325-96882966acdc
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl Material 5_46d2061c-ee9d-4235-be58-fb17cacfbf02
+Kd 0.580 0.384 0.416
+d 1.000
+newmtl Material 6_7956f586-1cb3-455c-ae82-0590704c30fa
+Kd 0.365 0.541 0.659
+d 1.000
+newmtl Camera_mat1_004af4ea-b158-4fb3-92d0-4ac9c1dc882a
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Camera_BaseColor.jpg
+newmtl mat21_ada49886-a4c0-45eb-a6a2-80e8de43fcd3
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat20_404abe17-1df3-43d9-ba1f-785031abeb02
+Kd 0.470 0.330 0.280
+d 1.000
+newmtl greenFiverr 1_a95e09aa-be73-484e-b8f7-19ec9c912145
+Kd 0.941 0.992 0.965
+d 1.000
+newmtl greenFiverr 2_db7dc277-7112-4e73-bb82-26542e7d3b79
+Kd 0.941 0.992 0.965
+d 1.000
+newmtl Matte Black_3b8215aa-ab2b-4a68-8ba3-1127e7942649
+Kd 0.137 0.137 0.137
+d 1.000
+newmtl Matte Black 1_8ce422de-acc2-482b-8414-83ceae4bb559
+Kd 0.137 0.137 0.137
+d 1.000
+newmtl Clear Walnut_2cffcc4f-7581-44b4-9691-d9bc748bf928
+Kd 0.357 0.290 0.227
+d 1.000
+newmtl Wood 8_76f86da9-3ef3-4559-aa6b-9982a516aafc
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Wood_025_base_1.jpg
+newmtl Oak - MFC 1_558a884a-d1fb-4deb-bc06-b0055ed416f9
+Kd 0.667 0.522 0.369
+d 1.000
+newmtl White - MFC_94369861-e51f-4c4b-9e93-fed39b892393
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl White - MFC 1_630816ea-312b-44e5-b7a0-4f19d7e70d75
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl Wood 6_77ad05ec-d257-4035-b2ba-e0bb1ffacbaf
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Wood_022_base_1.jpg
+newmtl baseBlack_0ced2fd3-cbdb-43d5-a287-bf6def3c286a
+Kd 0.118 0.118 0.118
+d 1.000
+newmtl White - MFC 2_2c76747e-1302-44eb-be96-e4670eea9568
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl White - MFC 3_3650bbf5-8da5-46e9-a8c1-2bb017c1071b
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl Wood 5_03e1c0ca-bb8f-449f-9002-6c07d5583e08
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Wood_025_base_1.jpg
+newmtl Legs grey_b5555632-313a-4e1a-812e-9486db2751e9
+Kd 0.749 0.749 0.749
+d 1.000
+newmtl Gums black_f8609a97-5a1f-4a9c-b5d2-adcf65d252e4
+Kd 0.102 0.643 0.388
+d 1.000
+newmtl mat23_97ba0c7d-3729-48eb-bfa1-0a4ca9a7efb3
+Kd 0.902 0.914 0.941
+d 1.000
+newmtl mat17 1_b3cfb4d4-e7db-40b6-93e4-2ce7f5c89850
+Kd 0.270 0.350 0.390
+d 1.000
+newmtl mat15_304072cf-982a-4a09-8ce8-59a9f037434c
+Kd 0.810 0.850 0.860
+d 1.000
+newmtl mat_n303bbb5947_9cabff59-14c5-4a32-b5fc-3e082769a250
+Kd 0.000 0.000 0.000
+d 1.000
+newmtl mat_blackpol45b058e1_1032d461-4030-4964-ae80-6477fa49f6c2
+Kd 0.250 0.250 0.250
+d 1.000
+newmtl mat_n309639f17d_fbbc0485-fcc9-4714-ae53-13cdac799a07
+Kd 0.000 0.000 0.000
+d 1.000
+newmtl mat_grayaa1ac8a6_eea22f32-09ba-437f-b077-03fd3a12e862
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd a567c328.jpg
+newmtl mat_aluwhite131fa6be_07dc8dca-0fb8-418f-b10f-f8823a1147a6
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat_alupolis6b0059b8_3bfd80bd-241d-485d-b9c8-c8d26d309e1d
+Kd 0.753 0.753 0.753
+d 1.000
+newmtl mat_s83766d4f2_2e159641-bb33-49b6-bc89-d98cf1f61112
+Kd 0.300 0.300 0.300
+d 1.000
+newmtl mat_chrome313fee04_943eb997-364e-4410-8c71-9c93d9a440ea
+Kd 0.682 0.682 0.682
+d 1.000
+newmtl copper_old_01_9916c508-2c6c-4fcf-aeec-cbd8bb8eb582
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd copper_old_01.jpg
+newmtl Mesh2 II1 Model material_d0080b8d-078c-467b-beca-3bbaf494b355
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh3 IX1 Model material_a75bcb40-4a78-4d7a-b746-6b01909c3fac
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh4 IX1 Model material_289706cd-5914-4b31-838e-7c13fd4108c4
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh5 VII1 Model material_27a4a233-d606-4dc6-9452-6b43cda93027
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh6 VII1 Model material_b2be3a8b-dbf8-41dd-84ce-2428070ad3e1
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh7 VII1 Model material_3eb3354f-41eb-4269-868a-e4482bbf4953
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh8 V1 Model material_e2bfe7c4-e730-48a6-9b03-b7901276e91a
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh9 XII1 Model material_2c63878b-9daf-48c6-894d-8a8688f966bf
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh10 XII1 Model material_735c8f7d-fc4b-4299-b218-2384c7c1bc03
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh11 XII1 Model material_77e4c3ed-7382-4475-8b31-1543e098238e
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh12 VIII1 Model material_55360c4f-ea4e-43a2-887d-afdf46d9eec4
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh13 VIII1 Model material_f8f465e1-88d3-4f2e-a314-893608dcb993
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh14 VIII1 Model material_6e394f63-ab8f-45e0-a1c8-86514daccbab
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh15 VIII1 Model material_bb42011e-2a6e-4070-8e28-0f6051fe5298
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl verdigris_copper_finish_21718152_2f295c50-0638-408a-a5f4-86cc18102c1c
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd verdigris_copper_finish_21718152.jpg
+newmtl FrontColor_0a016894-8294-4b64-899e-f58392fe85ed
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl Mesh18 I1 Model material_0e62f960-6549-42ea-b38c-7abad4663881
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh21 III1 Model material_4daa90e8-6b05-471d-9767-b06aae63687b
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh22 III1 Model material_02867c2d-35be-4d39-b0f1-159e4007048e
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh23 IIII1 Model material_674aeb3e-59b3-42aa-b219-1e0af5993e56
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh24 IIII1 Model material_f7b27a3a-d89f-4e46-85c2-661bba71f4bc
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh25 IIII1 Model material_369f6410-1e26-4012-9e6a-beb82793f908
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh26 IIII1 Model material_53cd40dc-e84d-4e4e-8faf-541abde8e895
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh27 XI1 Model material_f156f2f6-a4af-44c0-8e0f-0bfeb5b4d66c
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh28 XI1 Model material_382f6afc-64d3-4660-b431-7c7745d57dd6
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh29 VI1 Model material_7aee47d5-5d6a-4873-8a8e-15f86ffd5b29
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Mesh30 VI1 Model material_66bb06f2-02cf-4760-852c-9ef88e99b13a
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl PD_MT_4_Brushed_Verdigris_7e4c00ef-cc19-4e8e-a314-642b3178c06a
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd PD_MT_4_Brushed_Verdigris.jpg
+newmtl Metal_Aluminum_Anodized_0a9bc160-cbb3-498a-acd3-c6a26a23dadc
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Metal_Aluminum_Anodized.jpg
+newmtl 03___Default 2_300f00ae-c1bb-4248-ba74-562a1b431851
+Kd 0.031 0.031 0.031
+d 1.000
+newmtl 08___Default_5333a9db-a95f-4f12-acbf-bbf73b24fb12
+Kd 0.588 0.588 0.588
+d 1.000
+newmtl Wood 1_96a0350e-bde7-47f2-ac43-376960fb8484
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Wood_022_base_1.jpg
+newmtl Wood 2_a073a28c-4884-410c-9a41-0513e4e0135a
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Wood_025_base_1.jpg
+newmtl lambert3SG 1_78786f52-4616-4624-9ebf-98400f672a9c
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Computer_Texture.jpg
+newmtl initialShadingGroup_ff1f0691-7d2d-4906-a5a8-29fea3927f86
+Kd 0.500 0.500 0.500
+d 1.000
+newmtl mat19_34c212d0-459d-433a-8823-113e1cffd06e
+Kd 0.870 0.600 0.270
+d 1.000
+newmtl mat20 2_abf93c13-eb93-486a-896e-609af30742ff
+Kd 0.470 0.330 0.280
+d 1.000
+newmtl mat10_9cca904c-d071-4195-98be-503d4f9280bc
+Kd 0.300 0.690 0.310
+d 1.000
+newmtl mat9_53f7fd84-eddd-4615-aa59-cf655e6c1d89
+Kd 0.550 0.760 0.290
+d 1.000
+newmtl Material 7_45c48db8-0ea2-4c27-afc0-9b2d73e41efc
+Kd 1.000 0.796 0.247
+d 1.000
+newmtl Material 8_096f5edc-dda8-45f1-b3f6-e4ff1355ee07
+Kd 0.369 0.271 0.827
+d 1.000
+newmtl Material 9_4d30fc45-b2c6-49e1-8eba-56b2c857a9d0
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl Material 10_fb045876-ba26-4808-9f90-dd7034da4acf
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat17 2_dc5867b1-c634-4794-8f20-3a7b2f156f0e
+Kd 0.270 0.350 0.390
+d 1.000
+newmtl mat21 1_d0374394-5c1d-464a-b553-34f50b046362
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat8 1_6ced7d0e-6bed-4685-89f1-ac37d44dd745
+Kd 0.960 0.260 0.210
+d 1.000
+newmtl mat23 1_f533b3c5-ab6e-48ad-9d22-2754e4a52092
+Kd 0.100 0.100 0.100
+d 1.000
+newmtl mat12_6dfe10af-2d15-45bb-a926-83d2b5ac3e9d
+Kd 1.000 0.920 0.230
+d 1.000
+newmtl mat3_c89865d4-1ebe-4333-83a8-8899af6eb508
+Kd 0.500 0.870 0.920
+d 1.000
+newmtl mat20 3_772cde61-cee1-4d9a-a0f6-8b3e7a7bc3c5
+Kd 0.470 0.330 0.280
+d 1.000
+newmtl mat9 1_405dafb5-79d3-459f-8f39-0ab4bd5d75f3
+Kd 0.550 0.760 0.290
+d 1.000
+newmtl mat7_85656dab-b856-4ffc-bcd1-87036fc116c3
+Kd 0.940 0.380 0.570
+d 1.000
+newmtl mat21 2_01dadfff-e38a-4fad-941d-2c9c195450e4
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat16 1_24dd6989-e369-4bdc-b7f4-ab2a12dbb5b5
+Kd 0.470 0.560 0.610
+d 1.000
+newmtl mat1_68ca9c3e-e06c-459c-b2a5-f14367719358
+Kd 0.610 0.150 0.690
+d 1.000
+newmtl mat5_727179cb-d868-4cbf-8ae5-205e00058cae
+Kd 0.010 0.610 0.900
+d 1.000
+newmtl mat10 1_4360b650-242f-41c1-b951-425b8776e194
+Kd 0.300 0.690 0.310
+d 1.000
+newmtl mat20 4_650b8b2c-667e-4f9e-8f29-37474a1d1862
+Kd 0.470 0.330 0.280
+d 1.000
+newmtl mat9 2_5239be55-a575-4529-886a-0b22bb3e76d9
+Kd 0.961 0.961 0.961
+d 1.000
+newmtl mat22_95d5e4f1-2b3d-438c-b013-89988daa32c3
+Kd 0.620 0.620 0.620
+d 1.000
+newmtl mat14 10_fb6d2ecf-0468-48e7-b1e3-6fdc13f3537c
+Kd 0.384 0.522 0.388
+d 1.000
+newmtl mat14 11_8be6b061-819c-441e-bba3-f53e8b15934b
+Kd 0.384 0.522 0.388
+d 1.000
+newmtl mat14 12_55e9dd32-2bbb-4435-b182-9f76f61c192b
+Kd 0.384 0.522 0.388
+d 1.000
+newmtl mat21 19_4f08f065-8da7-40b1-96a9-bfdbcf16c6a5
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 20_6f689df8-1a11-4598-a238-dd55f91da48c
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 21_582afa4b-d289-4099-a068-391a1cdbea66
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 22_5468ccbb-6f69-4435-8a04-c7cd9152903b
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 23_8d4495be-1caa-4f1a-98f6-f00ba6dba2cc
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat14 7_f1950b08-8016-4e4e-a4a5-99127e1d2860
+Kd 0.133 0.196 0.612
+d 1.000
+newmtl mat14 8_81c9088f-296d-4ab4-8151-c8a8864b0839
+Kd 0.133 0.196 0.612
+d 1.000
+newmtl mat14 9_3434be6d-5d57-4253-a8d9-a93fda020244
+Kd 0.133 0.196 0.612
+d 1.000
+newmtl mat21 14_aa28fa26-2dcc-4219-9da1-5a86129e7b0e
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 15_4526527d-e9c0-4683-96f7-f2b4cd5276ac
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 16_f2f46e2d-767f-489b-ace5-da8e57e77929
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 17_72912650-c7c2-4c58-93a5-a34b04240fad
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 18_64cc2627-8253-43cb-9a43-1d94412da155
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat14 4_d3c15a63-6cea-4623-b33e-f0e25bc9ac5a
+Kd 1.000 0.340 0.130
+d 1.000
+newmtl mat14 5_fc46bfeb-b997-4f9c-bee0-b288976b20bd
+Kd 1.000 0.340 0.130
+d 1.000
+newmtl mat14 6_481703c4-5a3a-40f3-a613-0a856761b399
+Kd 1.000 0.340 0.130
+d 1.000
+newmtl mat21 9_da8b841c-c65f-453a-a272-906f388210a3
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 10_d7ecfbeb-feaf-4e8f-91db-03b39b3f7459
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 11_3c6e7bed-7a77-4ed4-a2af-be7490513cc4
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 12_c96e2dc9-c081-438f-af27-b74ab2da437c
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 13_e733193b-be1d-4843-b8a3-fbce20366a83
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat14 1_01b9b89d-3aa0-44ff-b4fb-6015a38e19fa
+Kd 0.522 0.282 0.690
+d 1.000
+newmtl mat14 2_54e15a05-3982-4794-9b44-992bcaab48c3
+Kd 0.522 0.282 0.690
+d 1.000
+newmtl mat14 3_34e88fcf-0b10-4bcc-bc7e-3b3234ba40aa
+Kd 0.522 0.282 0.690
+d 1.000
+newmtl mat21 4_6497c8fe-322c-41c6-bfcc-deaf30857804
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 5_409ebafd-8937-48a4-86a3-bdb0286f72a8
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 6_e734da50-fb6f-467a-80d6-c6db463c69f5
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 7_bfecc91b-3964-4e59-ba24-7e71e42700c0
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat21 8_5f682fe7-6383-4efa-a12d-7b5ba8af6bbe
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl mat14_88d378a7-2acf-4362-ba6d-dbded374f52b
+Kd 1.000 0.340 0.130
+d 1.000
+newmtl mat21 3_7335bd93-6ab9-4b2a-b8f6-a635aa1e372e
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl Material 11_e9b1eb3a-6180-4342-a8b7-9372618508e8
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd colorTexture&opacityTexture.png
+newmtl Material 12_06e03965-53e6-451d-bc58-d85c9366ed45
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd colorTexture&opacityTexture_1.png
+newmtl Material 13_57a49592-4c57-4360-a20a-3779b2a48898
+Kd 0.149 0.149 0.149
+d 1.000
+newmtl Material 14_260ab1ef-3759-4163-8939-5bd9f1628b59
+Kd 0.251 0.808 0.482
+d 1.000
+newmtl _crayfishdiffuse 2_b664dfce-9ad0-439b-a17b-70c74a7f7d16
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd colorTexture&opacityTexture_2.png
+newmtl _crayfishdiffuse 1_f2239b40-f36e-4b47-b9d4-b01669467be8
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd colorTexture&opacityTexture_2.png
+newmtl default_d77d4dd7-ab77-4fed-9bd9-305fa74e8fcb
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl Liquid_7ba89314-cf5c-4046-a5d5-314867ed5ad5
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd colorTexture&opacityTexture_3.png
+newmtl UmbrellaPalmTree_mat_f7a08394-2b51-49c6-8bcf-29904c6b4708
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd UmbrellaPalmTree_BaseColor.jpg
+newmtl Material 15_b4a8ecc8-8e6d-4837-bebe-6e8c8396465f
+Kd 0.243 0.247 0.318
+d 1.000
+newmtl Default material 3_20e68151-6516-45a0-81f8-7343862dee6e
+Kd 1.000 0.796 0.247
+d 1.000
+newmtl Default material 4_a28e296c-c137-4451-ae3d-48e6246c15a0
+Kd 0.243 0.247 0.318
+d 1.000
+newmtl Default material 5_9cf48da4-17c6-4d0c-aebc-ef6f83f86e8c
+Kd 0.369 0.271 0.827
+d 1.000
+newmtl Material 16_0e6777bd-c5ca-494c-8792-cf0990476f62
+Kd 0.251 0.808 0.482
+d 1.000
+newmtl Material 17_38c086d6-72cc-40b0-8120-e63bff334808
+Kd 0.251 0.808 0.482
+d 1.000
+newmtl Default material 6_0bc69baf-4a4c-49ab-b8cb-8fef7c88f4d6
+Kd 1.000 0.796 0.247
+d 1.000
+newmtl Wood 3_dd282d64-bb64-4212-bfec-bc8d2b5cf2dc
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Wood_022_base_1.jpg
+newmtl Gray to White 2_31f2788f-f4d5-418b-bc92-32b5c55cf362
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd gradient141.jpg
+newmtl Copper_81ed1ba5-5546-40d9-816b-4d128b7ee26c
+Kd 0.933 0.580 0.376
+d 1.000
+newmtl Gray to White_8fe16a70-4fa3-4f2b-bf75-ca31ab734e84
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd gradient141.jpg
+newmtl Gray to White 1_ae212cd5-2209-484d-b389-c633cd124975
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd gradient141.jpg
+newmtl Gray to White 4_e6a0a3ae-82ae-45c4-baa4-9807a98c6227
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd gradient141.jpg
+newmtl Gray to White 3_bb256b7f-162d-4dfe-8f8a-adfad156257e
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd gradient141.jpg
+newmtl Brown to Antique White 1_82f90b41-88c0-4a42-94f4-77ba1c7872b0
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd gradient90.jpg
+newmtl Copper 1_b970517b-cdd2-409e-a698-c82d25d6737d
+Kd 0.933 0.580 0.376
+d 1.000
+newmtl Blanc_5b314038-42ce-4f3e-8eb0-9703fdbe24ea
+Kd 1.000 1.000 1.000
+d 1.000
+newmtl Bois_5966f0cf-7423-4f81-bf6f-7e95d8d09e0c
+Kd 0.510 0.263 0.043
+d 1.000
+newmtl Anthracite_99f8de49-96e9-40b0-9624-bf95bea18baf
+Kd 0.125 0.125 0.125
+d 1.000
+newmtl Aluminium_a8f1d97a-9d5a-4d48-92c7-283d10b0dff9
+Kd 0.698 0.698 0.698
+d 1.000
+newmtl Material 21_a14b8e8f-8f2c-407c-a193-11d32ade97bf
+Kd 0.243 0.247 0.318
+d 1.000
+newmtl Mat 1_4b4c657d-123b-49c0-a539-228d0efe9b52
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd 1344_Message_Board_02.jpg
+newmtl White_a6d95dce-8b79-4af2-8760-106a56d5773f
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd 30261173_318018572056650_8246210463835095040_n.jpg
+newmtl lambert8SG_de66bfc8-af93-4435-87ef-7a925494279f
+Kd 0.180 0.040 0.010
+d 1.000
+newmtl White 1_3ef405dd-925f-4673-8c63-0e240d023f64
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd 30127581_318018675389973_5662373587558858752_n.jpg
+newmtl lambert8SG 1_58dd6c8c-5a70-49ab-ba41-975d3bc55c11
+Kd 0.180 0.040 0.010
+d 1.000

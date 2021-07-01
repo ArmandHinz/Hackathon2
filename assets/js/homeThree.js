@@ -15,25 +15,40 @@ function init() {
     //SCENE and CAMERA
     camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 100 );
     camera.position.set(-1, 6, 7);
+   
         
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xD7D7BF );
 
-    //LIGHT
-    dirLight = new THREE.DirectionalLight( 0xffffff );
-    light = new THREE.PointLight(0xffffff, .8, 1000, 2);
-    dirLight.position.set( .5, 2, 1 );
-    scene.add( dirLight,  light  );
 
+        let light = new THREE.PointLight(0xffffff, 1.4, 100)
+        light.position.set(0,3,2);
+        scene.add(light);
+       
+        const mtlLoader = new MTLLoader();
+        
 
-        const gltfLoader = new GLTFLoader();
+        mtlLoader.setPath( "Object3D/" );
 
-        gltfLoader.setPath( 'Object3D/' ).load( 'Fivverr.gltf', function ( object ) {
+        mtlLoader.load( 'Fivverr.mtl', function( materials ) {
+
+            materials.preload(); 
+            const loader = new OBJLoader(); 
+
+            loader.setMaterials( materials );
+            loader.setPath( "Object3D/" );
+            loader.load( 'Fivverr.obj', function ( object ) {
             
-            object.scene.scale.multiplyScalar(35);
-            scene.add( object.scene );
-            
-        })
+                object.position.set(.1,.1,.1);
+                object.scale.set( .04, .04, .04 );    
+                scene.add( object );
+
+            })
+        });
+ 
+
+
+        
 
         //LINK HTML
         let forum = document.createElement( 'a' );
@@ -72,7 +87,7 @@ function init() {
         //RENDERER  
 
         // WebGl
-        renderer = new THREE.WebGLRenderer();
+        renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
         renderer.setSize( window.innerWidth, window.innerHeight );
         document.body.appendChild( renderer.domElement );
         //Css2d
@@ -94,7 +109,7 @@ function init() {
         controls.maxAzimuthAngle = Math.PI/3 ;
         // min / max Zoom
         controls.minDistance = 5;
-        controls.maxDistance = 12; 
+        controls.maxDistance = 12;
         // Do not Drag
         controls.enablePan = false; 
         controls.update();
@@ -102,6 +117,10 @@ function init() {
 }
 
 
+window.addEventListener('resize', ()=>{
+    renderer.setSize( window.innerWidth ,window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+})
 
 
 // ANIMATE FUNCTION (re-renderer)
